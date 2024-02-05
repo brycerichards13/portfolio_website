@@ -10,9 +10,15 @@ const controls = new SPLAT.OrbitControls(camera, renderer.canvas);
 
 async function main() {
     // await SPLAT.Loader.LoadFromFileAsync("/src/point_cloud.splat", scene, () => {});
+
+    let startPos = new SPLAT.Vector3(4.2388241150117505, -2.4439043478085245, -1.190063843666451);
+    let startRot = new SPLAT.Quaternion(-0.19189211657561078, -0.43105148200373744, -0.09435678760078532, 0.8766235406901722);
     
+    camera.position = startPos;
+    camera.rotation = startRot;
+
     // const url = "https://huggingface.co/datasets/dylanebert/3dgs/resolve/main/bonsai/bonsai-7k.splat";
-    const url = "https://huggingface.co/brycerichards13/brycerichards/resolve/main/hfbrycetext/point_cloud/iteration_7000/fullscenenotcleaned.splat";
+    const url = "https://huggingface.co/brycerichards13/brycerichards/resolve/main/hfbrycetext/point_cloud/iteration_7000/badtest.splat";
 
     await SPLAT.Loader.LoadAsync(url, scene, () => {});
     
@@ -31,7 +37,7 @@ async function main() {
         currentY = e.clientY;
     });
 
-    function disableUserInteraction(event: MouseEvent): void {
+    function disableUserInteraction(event: Event): void {
         // Check if the event is a synthetic event
         if (!isSynthetic) {
             console.log('User interaction detected');
@@ -40,11 +46,11 @@ async function main() {
         }
     }
     
-    // document.addEventListener('mousedown', disableUserInteraction, true);
-    // document.addEventListener('mouseup', disableUserInteraction, true);
-    // document.addEventListener('mousemove', disableUserInteraction, true);
-    // document.addEventListener('click', disableUserInteraction, true);
-    document.addEventListener('wheel', disableUserInteraction, true);
+    const userEvents = ['mousedown', 'mouseup', 'mousemove', 'click', 'wheel', 'keydown', 'keyup'];
+
+    userEvents.forEach((event) => {
+        document.addEventListener(event, disableUserInteraction, true);
+    });
 
     let isSynthetic: boolean = false;
 
@@ -61,26 +67,70 @@ async function main() {
         });
     }
 
-
+    function dispatchSyntheticKeypress(type: string, key: KeyboardEventInit): Promise<void> {
+        return new Promise((resolve) => {
+            isSynthetic = true; // Lock user input
+    
+            const event = new KeyboardEvent(type, key);
+            appElement.dispatchEvent(event);
+            console.log(event);
+    
+            isSynthetic = false; // Unlock user input immediately after dispatch
+            resolve();
+        });
+    }
+    
+    
     const frame = () => {
+        // dispatchSyntheticKeypress('keydown', { key: 'w' });
+
         // if (t < animationDuration) {
-        //     async function handleSyntheticInput() {
-        //         await dispatchSyntheticEvent('mousedown', currentX, currentY);
-        //         await dispatchSyntheticEvent('mousemove', currentX + 10, currentY + 10);
+        //     if (t < 3) {
+        //         async function handleSyntheticInput() {
+        //             await dispatchSyntheticEvent('mousedown', currentX, currentY);
+        //             await dispatchSyntheticEvent('mousemove', currentX + 1, currentY + 1);
+        //             await dispatchSyntheticEvent('mouseup', currentX + 1, currentY + 1);
+                    
+        //         }
+
+        //         handleSyntheticInput().then(() => {
+        //             // camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
+        //         });
+
+        //         currentX += 1;
+        //         currentY += 1;
         //     }
-            
-        //     handleSyntheticInput();
-            
-        //     currentX += 10;
-        //     currentY += 10;
+        //     else {
+        //         async function handleSyntheticInput() {
+        //             await dispatchSyntheticEvent('mousedown', currentX, currentY);
+        //             await dispatchSyntheticEvent('mousemove', currentX + 1, currentY - 1);
+        //             await dispatchSyntheticEvent('mouseup', currentX + 1, currentY - 1);
+        //             camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
+        //         }
+
+        //         handleSyntheticInput().then(() => {
+        //             camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
+        //         });
+
+        //         currentX += 1;
+        //         currentY -= 1;
+        //     }
+
+
+
+        //     // handleSyntheticKeyPress();
             
         //     t += 0.01;
         // }
         // else {
-        //     dispatchSyntheticEvent('mouseup', currentX + 10, currentY + 10);
+        //     // dispatchSyntheticEvent('mouseup', currentX + 10, currentY + 10);
         //     isSynthetic = true
         // }
         
+        // console.log(camera.position.x, camera.position.y, camera.position.z);
+        // console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z, camera.rotation.w);
+        isSynthetic = true;
+
         controls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(frame);

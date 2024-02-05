@@ -118,38 +118,45 @@
         </div>
       </div>
 
+      <!-- This single line div is just for a place for the header button to scroll to instead of a clipped view -->
       <div id="container_portfolio"></div>
       <div >
         <p class="text_titles">Projects</p>
 
-        <div style="display: flex; flex-direction: row;">
-          <div style="display: flex; flex-direction: column; margin-left: 11vw;">
+        <div class="container_projects">
+          <div style="display: flex; flex-direction: column; min-width: 700px;">
             <div style="display: flex; flex-direction: row;">
               <img src="/src/img/fantanofythumbnail.png" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
               <p class="text_projecttitles">Fantanofy</p>
             </div>
-            <div style="width: 30vw; min-width: 700px;">
+            <div style="width: 40vw; min-width: 700px;">
               <div>
-                <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="40%">
-                <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="40%">
+                <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="49.6%">
               </div>
               <div>
-                <img src="/src/img/project_screenshots/fantanofy_2.PNG" width="40%">
-                <img src="/src/img/project_screenshots/fantanofy_5.PNG" width="40%">
+                <img src="/src/img/project_screenshots/fantanofy_2.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/fantanofy_5.PNG" width="49.6%">
               </div>
             </div>
           </div>
           <div class="container_fantanofy">
             <div>
-              <p style="width: 50vw; min-width: 600px;">
+              <p style="font-size: 1.2rem;">
                 A fullstack web application that I built from scratch, which uses Spotify's API to compare their top tracks and albums to albums reviewed by popular critic 
-                <a href="https://www.youtube.com/@theneedledrop" target="_blank">Anthony Fantano.</a> The user logins in with their Spotify, then my server makes a request to the Spotify API to get the data,
-                compares the user's top tracks and albums to Anthony Fantano's reviews using a MySQL database created from thousands of webscraped reviews, and gives a score based on how similar the user's music taste is to Anthony Fantano's. It also allows the user
-                to view all the scores that Anthony Fantano has given the user's top albums and tracks. Lastly, since I had an entire database of all of his reviews, I built a stats page which visualizes
-                his different statistics in an engaging and interesting way, which I processed using the Pandas data analysis Python library. I created the backend written in Node.js with the Express framework, and the frontend written in responsive HTML,
-                EJS, CSS, and JavaScript. Lastly I deployed the website to AWS on a Linux server with Nginx, added SEO and SSL certification, and it has been used by hundreds of people around the world.
+                <a href="https://www.youtube.com/@theneedledrop" target="_blank">Anthony Fantano.</a>
+                <br><br>
+                The user logs in in with their Spotify, then my server makes a request to the Spotify API to get the data,
+                compares the user's top tracks and albums to Anthony Fantano's reviews using a MySQL database created from thousands of webscraped reviews, and gives a score based on how similar the user's music taste is to Anthony Fantano's.
+                <br><br>
+                It also allows the user to view all the scores that Anthony Fantano has given the user's top albums and tracks.
+                <br><br>
+                Lastly, since I had an entire database of all of his reviews, I built a stats page which visualizes his different statistics in an engaging and interesting way, which I processed using the Pandas data analysis Python library.
+                <br><br>
+                I created the backend written in Node.js with the Express framework, and the frontend written in responsive HTML, EJS, CSS, and JavaScript.
+                Lastly I deployed the website to AWS on a Linux server with Nginx, added SEO and SSL certification, and it has been used by hundreds of people around the world.
               </p>
-              <div style="display: flex; flex-direction: row;">
+              <div style="display: flex; flex-flow: row wrap; justify-content: right;">
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
                   <p class="text_badges">HTML</p>
@@ -191,7 +198,7 @@
           </div>
         </div>
 
-        <div class="container_recurse">
+        <div class="container_recurse container_projects">
           <p  class="text_projecttitles">recurseAi</p>
           <img src="/src/img/recurseAi_logo.png" width="128px" height="128px"></img>
           <div style="width: 30vw; min-width: 700px;">
@@ -242,7 +249,7 @@
           </div>
         </div>
 
-        <div class="container_tts">
+        <div class="container_tts container_projects">
           <p  class="text_projecttitles">Celebrity Text to Speech</p>
           <div style="width: 30vw; min-width: 700px;">
             <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="25%">
@@ -275,7 +282,7 @@
           </div>
         </div>
 
-        <div class="container_tts">
+        <div class="container_tts container_projects">
           <p>This website</p>
           <div style="display: flex; flex-direction: row;">
             <div class="container_badges">
@@ -297,7 +304,7 @@
           </div>
         </div>
 
-        <div class="container_tts">
+        <div class="container_tts container_projects">
           <p>Currently In Progress</p>
           <p>I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow apartment complexes to be able to take photos of the inside of their apartment, process it, and turn it into a 
             3D model that can be viewed on their website. This will allow for engaging full 3D tours of apartments that the user can move around in, which will be a huge improvement over the current techniques being used. It would also require no special equipment,
@@ -308,17 +315,25 @@
 
       <div id="container_contactme">
         <p class="text_titles">Contact Me</p>
-        <p>You can email me at: brycerichards13@gmail.com</p>
-        <p>Or you can find me on</p>
-        <div>
-          <img src="/src/img/socialmedia_logos/linkedin_logo.png" width="32px" height="32px"></img>
-          <p>Linkedin</p>
-          <img src="/src/img/socialmedia_logos/github_logo.png" width="32px" height="32px"></img>
-          <p>GitHub</p>
+        <div style="margin-left: 8vw;">
+          <p>If you want to get in touch, email me at: brycerichards13@gmail.com</p>
+          <p>Or you can find me on these links</p>
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div>
+              <img src="/src/img/socialmedia_logos/linkedin_logo.png" width="32px" height="32px"></img>
+              <p>Linkedin</p>
+            </div>
+            <div>
+              <img src="/src/img/socialmedia_logos/github_logo.png" width="32px" height="32px"></img>
+              <p>GitHub</p>
+            </div>
+          </div>
         </div>
       </div>
       
-      <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button>
+      <div style="display: flex; justify-content: center;" >
+        <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button>
+      </div>
     </div>
     
     <div class="container_footer">
