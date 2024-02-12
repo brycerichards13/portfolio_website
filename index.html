@@ -256,7 +256,7 @@
               </div>
             </div>
           </div>
-          <a href="https://fantanofy.com" target="_blank" class="container_link">
+          <a href="https://github.com/brycerichards13/recurseAI" target="_blank" class="container_link">
             <div class="container_projectimg">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
@@ -277,20 +277,19 @@
       </div>
     <!-- /////////////// -->
       <div class="container_projects">
-        <a href="https://fantanofy.com" target="_blank" class="container_link">
+        <a href="https://github.com/brycerichards13/CelebrityTTS" target="_blank" class="container_link">
           <div class="container_projectimg">
               <div class="background_dots"></div>
               <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/fantanofythumbnail.png" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
+                <img src="/src/img/tts_icon.svg" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
                 <p class="text_projecttitles">Celebrity Text To Speech</p>
               </div>
               <div style="background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="49.6%">
-                <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/tts/tts_1.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/tts/tts_2.PNG" width="49.6%">
               </div>
               <div style="background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_screenshots/fantanofy_2.PNG" width="49.6%">
-                <img src="/src/img/project_screenshots/fantanofy_5.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/tts/tts_34.gif">
               </div>
           </div>
         </a>
@@ -298,13 +297,30 @@
           <div>
             <p style="font-size: 1.2rem;">
               This python project integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
+              <br> <br>
               It includes an interactive GUI, which allows users to input their own text and have it be read out by a chosen celebrity.
+              <br><br>
               Furthermore, it integrates functionality of the Streamlabs API, a popular software platform that live streamers use for managing their stream.
               My program allows the user to connect to the Streamlab's API to have the live streamers donations be read out by a chosen celebrity.
-              n order to create the training data for the celebrities' voices, I gathered large amounts of clear audio from online sources and split them into hundreds of distinct clips.
-              Then, I transcribed these clips into a CSV file and trained the neural network on a Linux machine using an NVIDIA GPU. I then used these models for generating the speech from the text. The GUI is created using a Python library called Tkinter.
-              The program separates the multithreaded GUI application and the voice generation into two separate processes using multiprocessing
+              <br><br>
+              In order to create the training data for the celebrities' voices, I gathered large amounts of clear audio from online sources and split them into hundreds of distinct clips.
+              Then, I transcribed these clips into a CSV file and trained the neural network on a Linux machine using an NVIDIA GPU. I then used these models for generating the speech from the text.
+              <br><br>
+              The GUI is created using a Python library called Tkinter.
+              The program separates the multithreaded GUI application and the voice generation into two separate processes using multiprocessing.
+              <br><br>
+              Examples of the text output can be played here.
             </p>
+            <div>
+              <audio controls>
+                <source src="/src/audio/default.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <audio controls>
+                <source src="/src/audio/elon.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
             <div style="display: flex; flex-direction: row;">
               <div class="container_badges">
                 <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/python.svg"/>
@@ -350,15 +366,15 @@
           </div>
         </div>
           <div class="container_projectimg">
-            <a class="container_link">
+            <a href="https://github.com/brycerichards13/portfolio_website" class="container_link" target="_blank">
               <div class="background_dots"></div>
               <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
                 <img src="/src/img/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
                 <p class="text_projecttitles">Personal Website</p>
               </div>
               <div style="background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="49.6%">
-                <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess2.PNG" width="49.6%">
+                <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess1.PNG" width="49.6%">
               </div>
               <div style="background-color: black; position: relative; z-index: 2;">
                 <img src="/src/img/project_screenshots/fantanofy_2.PNG" width="49.6%">
@@ -368,31 +384,61 @@
           </div>
         </div>
 
-      <div class="container_tts container_projects">
-        <p>Currently In Progress</p>
-        <p>I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow apartment complexes to be able to take photos of the inside of their apartment, process it, and turn it into a
-          3D model that can be viewed on their website. This will allow for engaging full 3D tours of apartments that the user can move around in, which will be a huge improvement over the current techniques being used. It would also require no special equipment,
-          and can be done by anyone with a smartphone. In fact, the 3D rendering at the top of this website is a demonstration of this technique.
-        </p>
-      </div>
+        <div class="container_projects">
+          <a target="_blank" class="container_link">
+            <div class="container_projectimg">
+                <div class="background_dots"></div>
+                <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
+                  <p class="text_projecttitles">Currently In Progress</p>
+                </div>
+                <div style="background-color: black; position: relative; z-index: 2;">
+                  <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="49.6%">
+                  <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="49.6%">
+                </div>
+            </div>
+          </a>
+          <div class="container_fantanofy">
+            <div>
+              <p style="font-size: 1.2rem;">
+                I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow apartment complexes to be able to take photos of the inside of their apartment, process it, and turn it into a
+                3D model that can be viewed on their website. This will allow for engaging full 3D tours of apartments that the user can move around in, which will be a huge improvement over the current techniques being used. It would also require no special equipment,
+                and can be done by anyone with a smartphone. In fact, the 3D rendering at the top of this website is a demonstration of this technique.
+              </p>
+              <div style="display: flex; flex-flow: row wrap; justify-content: right;">
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
+                  <p class="text_badges">HTML</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/css3.svg"/>
+                  <p class="text_badges">CSS</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/typescript.svg"/>
+                  <p class="text_badges">TypeScript</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div id="container_contactme">
         <p class="text_titles">Contact Me</p>
-        <div style="margin-left: 8vw;">
-          <p>If you want to get in touch, email me at: brycerichards13@gmail.com</p>
+        <div style="margin-left: 8vw; font-size: 2rem;">
+          <p>If you want to get in touch, email me at: <br> brycerichards13@gmail.com</p>
           <p>Or you can find me on these links</p>
           <div style="display: flex; flex-direction: row; align-items: center;">
             <div>
               <a href="https://www.linkedin.com/in/bryce-richards-085312237/">
                 <img src="/src/img/socialmedia_logos/linkedin_logo.png" width="32px" height="32px"></img>
               </a>
-              <p>Linkedin</p>
+              <!-- <p>Linkedin</p> -->
             </div>
             <div>
               <a href="https://github.com/brycerichards13">
                 <img src="/src/img/socialmedia_logos/github_logo.png" width="32px" height="32px"></img>
               </a>
-              <p>GitHub</p>
+              <!-- <p>GitHub</p> -->
             </div>
           </div>
         </div>
@@ -401,7 +447,7 @@
       <div style="display: flex; justify-content: center;" >
         <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button>
 
-        <div class="arrow arrow--right">
+        <div class="arrow arrow--up">
           <span></span>
         </div>
 

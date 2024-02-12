@@ -322,12 +322,14 @@ p {
 .arrow:before {
   transform: rotate(-45deg);
   transform-origin: bottom left;
+  height: 5px;
   transition: top 0.3s 0.05s;
 }
 
 .arrow:after {
   transform: rotate(45deg);
   transform-origin: bottom right;
+  height: 5px;
   transition: top 0.3s 0.05s;
 }
 
@@ -336,7 +338,7 @@ p {
   position: absolute;
   top: -50px;
   transform: rotate(90deg);
-  transition: width 0.3s, top 0.3s 0.05s;
+  transition: height 0.3s, top 0.3s 0.05s;
 }
 
 .arrow:hover span,

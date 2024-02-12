@@ -46,7 +46,13 @@ async function main() {
         }
     }
     
-    const userEvents = ['mousedown', 'mouseup', 'mousemove', 'click', 'wheel', 'keydown', 'keyup'];
+    function disableWholeInteraction(event: Event): void {
+        event.stopPropagation();
+    }
+
+    appElement?.addEventListener('wheel', disableWholeInteraction, true);
+    
+    const userEvents = ['mousedown', 'mouseup', 'mousemove', 'click', 'keydown', 'keyup'];
 
     userEvents.forEach((event) => {
         document.addEventListener(event, disableUserInteraction, true);
@@ -81,6 +87,7 @@ async function main() {
     }
     
     
+    let animationFrameID: number;
     const frame = () => {
         // dispatchSyntheticKeypress('keydown', { key: 'w' });
 
@@ -127,17 +134,41 @@ async function main() {
         //     isSynthetic = true
         // }
         
-        // console.log(camera.position.x, camera.position.y, camera.position.z);
+        console.log(camera.position.x, camera.position.y, camera.position.z);
         // console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z, camera.rotation.w);
         isSynthetic = true;
 
         controls.update();
         renderer.render(scene, camera);
-        requestAnimationFrame(frame);
-
+        animationFrameID = requestAnimationFrame(frame);
     };
 
-    requestAnimationFrame(frame);
+    // requestAnimationFrame(frame);
+
+    const startAnimation = () => {
+        if (!animationFrameID) { // Prevent multiple loops from starting
+          frame();
+        }
+    };
+
+    const stopAnimation = () => {
+        if (animationFrameID) {
+          cancelAnimationFrame(animationFrameID);
+          animationFrameID = null;
+        }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimation();
+          } else {
+            stopAnimation();
+          }
+        });
+    }, { threshold: 0.3 }); // Threshold defines how much of the item must be visible for the callback to execute      
+
+    observer.observe(appElement);
 };
 
 // After initializing the renderer...
