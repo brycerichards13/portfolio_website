@@ -199,7 +199,11 @@ p {
   /* background-color: transparent; */
 }
 
-.container_link:hover .container_projectimg {
+.container_link_left:hover .container_projectimg {
+  transform: translate(-20px, -20px);
+}
+
+.container_link_right:hover .container_projectimg {
   transform: translate(20px, -20px);
 }
 
@@ -212,12 +216,14 @@ p {
   background-image: radial-gradient(circle, #ffffff 2px, transparent 2px), radial-gradient(circle, #ffffff 2px, transparent 2px);
   /* background-position: 0 0, 25px 25px; */
   background-size: 10px 10px;
-  height: calc(84px + 430px);
   transition: transform 0.3s ease-in-out;
   /* z-index: 1; */
 }
 
-.container_link:hover .background_dots {
+.container_link_left:hover .background_dots {
+  transform: translate(40px, 40px);
+}
+.container_link_right:hover .background_dots {
   transform: translate(-40px, 40px);
 }
 
