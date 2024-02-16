@@ -9,6 +9,10 @@ renderer.setSize(window.innerWidth, window.innerHeight * .9);
 const controls = new SPLAT.OrbitControls(camera, renderer.canvas);
 
 async function main() {
+    if (window.matchMedia("(hover: none)").matches) {
+        return;
+    }
+
     // await SPLAT.Loader.LoadFromFileAsync("/src/point_cloud.splat", scene, () => {});
 
     let startPos = new SPLAT.Vector3(4.2388241150117505, -2.4439043478085245, -1.190063843666451);
@@ -41,7 +45,7 @@ async function main() {
         // Check if the event is a synthetic event
         if (!isSynthetic) {
             console.log('User interaction detected');
-            event.preventDefault();
+            // event.preventDefault();
             event.stopPropagation();
         }
     }
@@ -73,66 +77,80 @@ async function main() {
         });
     }
 
-    function dispatchSyntheticKeypress(type: string, key: KeyboardEventInit): Promise<void> {
-        return new Promise((resolve) => {
-            isSynthetic = true; // Lock user input
+    // function dispatchSyntheticKeypress(type: string, key: KeyboardEventInit): Promise<void> {
+    //     return new Promise((resolve) => {
+    //         isSynthetic = true; // Lock user input
     
-            const event = new KeyboardEvent(type, key);
-            appElement.dispatchEvent(event);
-            console.log(event);
+    //         const event = new KeyboardEvent(type, key);
+    //         appElement.dispatchEvent(event);
+    //         console.log(event);
     
-            isSynthetic = false; // Unlock user input immediately after dispatch
-            resolve();
-        });
+    //         isSynthetic = false; // Unlock user input immediately after dispatch
+    //         resolve();
+    //     });
+    // }
+    
+    function dispatchSyntheticKeypress(type: string, key: KeyboardEventInit) {
+        isSynthetic = true; // Lock user input
+
+        const event = new KeyboardEvent(type, key);
+        appElement.dispatchEvent(event);
+        console.log(event);
+
+        isSynthetic = false; // Unlock user input immediately after dispatch
     }
-    
     
     let animationFrameID: number;
     const frame = () => {
-        // dispatchSyntheticKeypress('keydown', { key: 'w' });
-
-        // if (t < animationDuration) {
-        //     if (t < 3) {
-        //         async function handleSyntheticInput() {
-        //             await dispatchSyntheticEvent('mousedown', currentX, currentY);
-        //             await dispatchSyntheticEvent('mousemove', currentX + 1, currentY + 1);
-        //             await dispatchSyntheticEvent('mouseup', currentX + 1, currentY + 1);
-                    
-        //         }
-
-        //         handleSyntheticInput().then(() => {
-        //             // camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
-        //         });
-
-        //         currentX += 1;
-        //         currentY += 1;
-        //     }
-        //     else {
-        //         async function handleSyntheticInput() {
-        //             await dispatchSyntheticEvent('mousedown', currentX, currentY);
-        //             await dispatchSyntheticEvent('mousemove', currentX + 1, currentY - 1);
-        //             await dispatchSyntheticEvent('mouseup', currentX + 1, currentY - 1);
-        //             camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
-        //         }
-
-        //         handleSyntheticInput().then(() => {
-        //             camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
-        //         });
-
-        //         currentX += 1;
-        //         currentY -= 1;
-        //     }
-
-
-
-        //     // handleSyntheticKeyPress();
+        
+        if (t < animationDuration) {
             
-        //     t += 0.01;
-        // }
-        // else {
-        //     // dispatchSyntheticEvent('mouseup', currentX + 10, currentY + 10);
-        //     isSynthetic = true
-        // }
+            if (t < 3) {
+                async function handleSyntheticInput() {
+                    await dispatchSyntheticEvent('mousedown', currentX, currentY);
+                    await dispatchSyntheticEvent('mousemove', currentX + 1, currentY + 1);
+                    await dispatchSyntheticEvent('mouseup', currentX + 1, currentY + 1);
+                    
+                }
+                
+                handleSyntheticInput().then(() => {
+                    // camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
+                });
+                
+                currentX += 1;
+                currentY += 1;
+            }
+            else {
+                async function handleSyntheticInput() {
+                    await dispatchSyntheticEvent('mousedown', currentX, currentY);
+                    await dispatchSyntheticEvent('mousemove', currentX + 1, currentY - 1);
+                    await dispatchSyntheticEvent('mouseup', currentX + 1, currentY - 1);
+                    await dispatchSyntheticKeypress('keydown', { key: 'w' });
+                    // camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z);
+                }
+
+                // dispatchSyntheticEvent('mousedown', currentX, currentY);
+                // dispatchSyntheticEvent('mousemove', currentX + 1, currentY - 1);
+                // dispatchSyntheticEvent('mouseup', currentX + 1, currentY - 1);
+                dispatchSyntheticKeypress('keydown', { key: 'w' });
+                    
+                // handleSyntheticInput().then(() => { camera.position = new SPLAT.Vector3(camera.position.x + .01, camera.position.y - .01, camera.position.z); });
+                handleSyntheticInput();
+
+                currentX += 1;
+                currentY -= 1;
+            }
+
+
+
+            // handleSyntheticKeyPress();
+            
+            t += 0.01;
+        }
+        else {
+            // dispatchSyntheticEvent('mouseup', currentX + 10, currentY + 10);
+            isSynthetic = true
+        }
         
         console.log(camera.position.x, camera.position.y, camera.position.z);
         // console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z, camera.rotation.w);

@@ -13,7 +13,7 @@
 
     <script type="module" src="/src/index.ts"></script>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/isometricbr_icon2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/project_logos/isometricbr_icon2.png">
     <title>Bryce Richards</title>
   </head>
   <body>
@@ -30,21 +30,24 @@
 
       <!-- <button id="button_sidebartoggle"> CLICK ME</button> -->
 
-      <button id="button_sidebartoggle" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))">
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-          <path class="line line2" d="M 20,50 H 80" />
-          <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-        </svg>
-      </button>
+      <div id="container_mobileheader">
+        <img src="/src/img/project_logos/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
+        <button id="button_sidebartoggle" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+            <path class="line line2" d="M 20,50 H 80" />
+            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+          </svg>
+        </button>
+      </div>
 
       <div id="container_header">
-        <img src="/src/img/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
+        <img src="/src/img/project_logos/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
         <div class="container_buttonheader">
           <a href="#container_aboutskills" class="button_header">About Me</a>
         </div>
         <div class="container_buttonheader">
-          <a href="#container_portfolio" class="button_header">Portfolio</a>
+          <a href="#container_portfolio" class="button_header">Projects</a>
         </div>
         <div class="container_buttonheader">
           <!-- <p style="color: white;">Contact Me</p> -->
@@ -61,7 +64,7 @@
           <p  style="font-size: 1.2rem;">
             I am currently a computer science major at the Tickle College of Engineering, University of Tennessee Knoxville, where I am pursuing my academic interests in software engineering and data science.
             <br><br>
-            I am 
+            I am a particularly interest in web development, data science, and machine learning, and I am always looking for opportunities to learn and grow in these areas.
             <br><br>
             I'm also passionate about data analysis and visualization. I love being able to take raw data and turn it into meaningful insights and visualizations. 
             I believe this skill is becoming increasingly important in our digital world, and I'm eager to continue developing my skills in this area.
@@ -76,62 +79,80 @@
         <div style="width: 40vw; min-width: 300px;">
           <p class="text_titles">Skills</p>
           <div class="container_languages">
-            <div>
+            <div class="container_languagelogo">
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/c.svg"/> -->
-              <img src="/src/img/language_logos/c_logo.png" style="height: 100px; width: 100px;"/>
+              <img src="/src/img/language_logos/c_logo.svg" style="height: 100px; width: 100px;"/>
               <p>C</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/python_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/python_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/python.svg"/> -->
               <p>Python</p>
             </div>
             <!-- Maybe?? <p>JavaScript</p> -->
-            <div>
+            <div class="container_languagelogo">
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/typescript.svg"/> -->
-              <img src="/src/img/language_logos/typescript_logo.png" style="height: 100px; width: 100px;"/>
+              <img src="/src/img/language_logos/typescript_logo.svg" style="height: 100px; width: 100px;"/>
               <p>TypeScript</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/html_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/html_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/> -->
               <p>HTML</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/css_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/css_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/css3.svg"/> -->
               <p>CSS</p>
             </div>
-            <div>
+            <div class="container_languagelogo">
               <img src="/src/img/language_logos/express_logo.png" style="height: 100px; width: 100px; filter: invert(100);"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/express.svg"/> -->
               <p>Express.js</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/nodejs_logo.png" style="height: 100px; width: 200px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/nodejs_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/nodedotjs.svg"/> -->
               <p>Node.js</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/react_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/react_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/react.svg"/> -->
               <p>React</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/git_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/git_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/> -->
               <p>Git</p>
             </div>
-            <div>
-              <img src="/src/img/language_logos/mysql_logo.png" style="height: 100px; width: 100px;"/>
+            <div class="container_languagelogo">
+              <img src="/src/img/language_logos/mysql_logo.svg" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/mysql.svg"/> -->
               <p>MySQL</p>
             </div>
-            <div>
+            <div class="container_languagelogo">
               <img src="/src/img/language_logos/pandas logo.png" style="height: 100px; width: 100px;"/>
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/pandas.svg"/> -->
               <p>Pandas</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="container_experience" class="container_projects">
+        <p class="text_titles">Experience</p>
+        <div>
+          <div>
+            <p>Chick-Fil-A</p>
+            <p>Team Member</p>
+            <p>From xxx - xxx</p>
+            <p>Location</p>
+            <p>Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, eaque minus. Laborum alias animi aperiam vero? Suscipit, amet similique. Deleniti ex officiis incidunt alias earum dolorum magni impedit, ipsum laudantium.</p>
+          </div>
+          <p>Buster's Liquors and Wines</p>
+          <p>Adventure Day Camp</p>
+          <div>
+            <p>Swipesum</p>
           </div>
         </div>
       </div>
@@ -146,7 +167,7 @@
             <div class="container_projectimg">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/fantanofythumbnail.png" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
+                  <img src="/src/img/project_logos/fantanofythumbnail.png" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
                   <p class="text_projecttitles">Fantanofy</p>
                 </div>
                 <div style="background-color: black; position: relative; z-index: 2;">
@@ -159,7 +180,7 @@
                 </div>
             </div>
           </a>
-          <div class="container_fantanofy">
+          <div class="container_projecttext_right">
             <div>
               <p style="font-size: 1.2rem;">
                 A fullstack web application that I built from scratch, which uses Spotify's API to compare their top tracks and albums to albums reviewed by popular critic
@@ -222,7 +243,7 @@
         </div>
 
         <div class="container_projects">
-          <div class="container_fantanofy">
+          <div class="container_projecttext_left">
             <div>
               <p style="font-size: 1.2rem;">
                 Transforms a standard chatbot into a goal oriented, project-focused tool by enabling the AI to autonomously break down user-inputted single goals into manageable sub-goals that the AI could then use, enhancing the user's experience. 
@@ -273,16 +294,16 @@
             <div class="container_projectimg">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/recurseAi_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
+                  <img src="/src/img/project_logos/recurseAi_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
                   <p class="text_projecttitles">recurseAi</p>
                 </div>
                 <div style="background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/project_screenshots/fantanofy_1.PNG" width="49.6%">
-                  <img src="/src/img/project_screenshots/fantanofy_3.PNG" width="49.6%">
+                  <img src="/src/img/project_screenshots/recurseAi/recurseai_1.png" width="49.6%">
+                  <img src="/src/img/project_screenshots/recurseAi/recurseai_2.png" width="49.6%">
                 </div>
                 <div style="background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/project_screenshots/fantanofy_2.PNG" width="49.6%">
-                  <img src="/src/img/project_screenshots/fantanofy_5.PNG" width="49.6%">
+                  <img src="/src/img/project_screenshots/recurseAi/recurseai_5.png" width="49.6%">
+                  <img src="/src/img/project_screenshots/recurseAi/recurseai_3.png" width="49.6%">
                 </div>
             </div>
           </a>
@@ -294,7 +315,7 @@
           <div class="container_projectimg">
               <div class="background_dots"></div>
               <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/tts_icon.svg" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
+                <img src="/src/img/project_logos/tts_icon.svg" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
                 <p class="text_projecttitles" style="font-size: 60px;">Celebrity Text To Speech</p>
               </div>
               <div style="background-color: black; position: relative; z-index: 2;">
@@ -307,7 +328,7 @@
               </div>
           </div>
         </a>
-        <div class="container_fantanofy">
+        <div class="container_projecttext_right">
           <div>
             <p style="font-size: 1.2rem;">
               This python project integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
@@ -358,7 +379,7 @@
       </div>
     <!-- //////////////////////////////////////////// -->
       <div class="container_projects">
-        <div class="container_fantanofy">
+        <div class="container_projecttext_left">
           <div>
             <p style="font-size: 1.2rem;">
               This is my personal website that I built from scratch using HTML, CSS, and JavaScript. I wanted to create a website that was visually engaging and unique, but also related to me and my interests.
@@ -404,7 +425,7 @@
           <div class="container_projectimg">
             <div class="background_dots"></div>
             <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-              <img src="/src/img/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
+              <img src="/src/img/project_logos/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
               <p class="text_projecttitles">Personal Website</p>
             </div>
             <div style="background-color: black; position: relative; z-index: 2;">
@@ -428,7 +449,7 @@
                 </div>
             </div>
           </a>
-          <div class="container_fantanofy">
+          <div class="container_projecttext_right">
             <div>
               <p style="font-size: 1.2rem;">
                 I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow property management companies to be able to take photos of the inside of available apartments, process it, and turn it into a
