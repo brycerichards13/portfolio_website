@@ -180,8 +180,8 @@ p {
 
 #container_experience {
   display: flex;
-  flex-flow: row;
-  align-items: center;
+  flex-flow: column;
+  /* align-items: center; */
   justify-content: space-around;
   height: 100vh;
 }
@@ -348,6 +348,29 @@ p {
   height: 100vh;
 }
 
+.form_contactme {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  width: 30%;
+}
+
+.input_contactme {
+  color: white;
+  /* background-color: rgb(15, 15, 15); */
+  background-color: transparent;
+  border-color: transparent;
+  margin-block: 1rem;
+}
+
+.button_contactme {
+  /* background-color: rgb(15, 15, 15); */
+  background-color: transparent;
+  border-color: transparent;
+  /* color: white; */
+}
+
 
 .arrow {
   cursor: pointer;
@@ -396,7 +419,6 @@ p {
 .arrow:hover:after {
   top: -21px; /* Move upwards on hover */
 }
-
 
 .container_footer {
   width: 100%;
