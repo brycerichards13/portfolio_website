@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Bona+Nova&family=Cormorant+SC:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Bona+Nova&family=Cormorant+SC:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -56,7 +57,7 @@
           <!-- <p style="color: white;">Contact Me</p> -->
           <a href="#container_contactme" class="button_header">Contact Me</a>
         </div>
-        <div class="container_buttonheader">
+        <div class="container_buttonheader" style="margin-right: 5.5vw;">
           <a href="public/Bryce_Richards_Resume.pdf"  class="button_header" target="_blank">View My Resume</a>
         </div>
       </div>
@@ -64,7 +65,7 @@
       <div id="container_aboutskills" class="container_projects">
         <div style="width: 40vw; min-width: 300px;">
           <p class="text_titles">About Me</p>
-          <p  style="font-size: 1.2rem;">
+          <p class="systemfont" style="font-size: 1.2rem;">
             I am currently a computer science major at the Tickle College of Engineering, University of Tennessee Knoxville, where I am pursuing my academic interests in software engineering and data science.
             <br><br>
             I am a particularly interest in web development, data science, and machine learning, and I am always looking for opportunities to learn and grow in these areas.
@@ -144,7 +145,7 @@
 
       <div id="container_experience" class="container_projects">
         <p class="text_titles">Experience</p>
-      <div style="margin-left: 9vw;">
+      <div class="systemfont" style="margin-left: 9vw;">
           <div>
             <p>Swipesum</p>
             <p>Software Engineering Intern</p>
@@ -171,7 +172,8 @@
       <!-- This single line div is just for a place for the header button to scroll to instead of a clipped view -->
       <div id="container_portfolio"></div>
       <div>
-        <p class="text_titles">Projects</p>
+        <!-- <p class="text_titles">PROJECTS</p> -->
+        <p class="text_titles systemfont">PROJECTS</p>
 
         <div class="container_projects">
           <a href="https://fantanofy.com" target="_blank" class="container_link_right">
@@ -193,7 +195,7 @@
           </a>
           <div class="container_projecttext_right">
             <div>
-              <p style="font-size: 1.2rem;">
+              <p class="systemfont">
                 A fullstack web application that I built from scratch, which uses Spotify's API to compare their top tracks and albums to albums reviewed by popular critic
                 <a href="https://www.youtube.com/@theneedledrop" target="_blank" style="text-decoration: underline;">Anthony Fantano.</a>
                 <br><br>
@@ -256,7 +258,7 @@
         <div class="container_projects">
           <div class="container_projecttext_left">
             <div>
-              <p style="font-size: 1.2rem;">
+              <p class="systemfont" style="font-size: 1.2rem;">
                 Transforms a standard chatbot into a goal oriented, project-focused tool by enabling the AI to autonomously break down user-inputted single goals into manageable sub-goals that the AI could then use, enhancing the user's experience. 
                 <br><br>
                 I participated in a six person team, with agile development practices in mind, conducting regular sprints and team meetings, which honed my collaborative software skills. 
@@ -341,7 +343,7 @@
         </a>
         <div class="container_projecttext_right">
           <div>
-            <p style="font-size: 1.2rem;">
+            <p class="systemfont" style="font-size: 1.2rem;">
               This python project integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
               <br> <br>
               It includes an interactive GUI, which allows users to input their own text and have it be read out by a chosen celebrity.
@@ -462,7 +464,7 @@
           </a>
           <div class="container_projecttext_right">
             <div>
-              <p style="font-size: 1.2rem;">
+              <p class="systemfont" style="font-size: 1.2rem;">
                 I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow property management companies to be able to take photos of the inside of available apartments, process it, and turn it into a
                 3D model that can be viewed by prospective customers on their website.
                 <br><br>
@@ -492,20 +494,29 @@
         <p class="text_titles" style="height: 4rem;">Contact Me</p>
         <div style="margin-left: 8vw; font-size: 1.5rem;">
           <div>
-            <p style="font-family: ak;">Get in touch or email directly at <b>brycerichards13@gmail.com</b>
+            <p style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Get in touch or email directly at <b>brycerichards13@gmail.com</b>
   
             <form class="form_contactme" action="https://formspree.io/f/xrgnqrvj" method="POST">
-              <input class="input_contactme" placeholder="Name" type="text" id="name" name="name" required>
+              <div>
+                <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">NAME</label>
+                <input class="input_contactme" placeholder="Your name" type="text" id="name" name="name" required>
+              </div>
             
-              <input class="input_contactme" placeholder="Email" type="email" id="email" name="_replyto" required>
+              <div>
+                <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">EMAIL</label>
+                <input class="input_contactme" placeholder="Your email" type="email" id="email" name="_replyto" required>
+              </div>
             
-              <textarea class="input_contactme" placeholder="Message" id="message" name="message" required></textarea>
+              <div style="display: flex; flex-direction: row;">
+                <p for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1rem;">YOUR <br> MESSAGE</p>
+                <textarea class="input_contactme" placeholder="Write your message here" id="message" name="message" required></textarea>
+              </div>
             
-              <button type="submit">Send</button>
+              <button style="background-color: transparent; border-color: transparent; color: rgb(200, 200, 200); cursor: pointer; font-size: 1rem;" type="submit">Send Email</button>
             </form>
           </div>
 
-          <p>Or you can find me on these links</p>
+          <p style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Or you can find me on these links</p>
           <div style="display: flex; flex-direction: row; align-items: center;">
             <div>
               <a href="https://www.linkedin.com/in/bryce-richards-085312237/">
@@ -524,12 +535,10 @@
       </div>
 
       <div style="display: flex; justify-content: center;" >
-        <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button>
-
-        <div class="arrow arrow--up">
+        <!-- <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button> -->
+        <div id="button_totop" class="arrow arrow--up">
           <span></span>
         </div>
-
       </div>
     </div>
 

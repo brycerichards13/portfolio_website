@@ -60,3 +60,11 @@ document.addEventListener("DOMContentLoaded", (): void => {
     });
 });
 
+// Button to scroll to the top of the page
+document.getElementById('button_totop').addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Scrolls smoothly to the top
+    });
+  });
+  
