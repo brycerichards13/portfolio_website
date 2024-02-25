@@ -179,16 +179,55 @@ p {
   flex-flow: row;
   align-items: center;
   justify-content: space-around;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 #container_experience {
   display: flex;
   flex-flow: column;
   /* align-items: center; */
-  justify-content: space-around;
-  height: 100vh;
+  /* justify-content: space-around; */
 }
+
+/* TIMELINE GRAPHIC */
+
+.timeline {
+  position: relative;
+  width: 2px; /* Width of the line connecting events */
+  background-color: transparent; /* Optional: only needed if you want a background for the container */
+  margin: 0 10vw; 
+  padding-top: 50px; 
+  padding-bottom: 10px; /* Space for extending the line beyond the last circle */
+}
+
+.event {
+  position: relative;
+  width: 15px; /* Diameter of the hollow circle */
+  height: 15px; /* Diameter of the hollow circle */
+  border: 2px solid #fff; /* Border color of the circle */
+  border-radius: 50%; /* Makes the div circular */
+  background-color: transparent; /* Ensures the circle is hollow */
+  margin-bottom: 300px;
+  z-index: 2; /* Ensures the circle appears above the line */
+}
+
+.event::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Start from the bottom of the circle */
+  left: 50%;
+  transform: translateX(-40%);
+  width: 2px; /* Width of the line extending downwards */
+  height: 300px; /* Adjust this to control spacing between events */
+  border-left: 3px dotted #ffffff;
+  z-index: -1; /* Places the line under the circle */
+}
+
+/* Optional: Removes the extending line from the last event */
+/* .timeline .event:last-child::after {
+  display: none;
+} */
+/* --------- END TIMELINE GRAPHIC */
 
 .container_badges {
   display: flex;
@@ -311,6 +350,7 @@ p {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 50vh;
 }
 
 .container_languagelogo {

@@ -64,7 +64,7 @@
 
       <div id="container_aboutskills" class="container_projects">
         <div style="width: 40vw; min-width: 300px;">
-          <p class="text_titles">About Me</p>
+          <p class="text_titles" style="display: flex; justify-content: center; margin-inline: 0;">About Me</p>
           <p class="systemfont" style="font-size: 1.2rem;">
             I am currently a computer science major at the Tickle College of Engineering, University of Tennessee Knoxville, where I am pursuing my academic interests in software engineering and data science.
             <br><br>
@@ -81,7 +81,7 @@
           </p>
         </div>
         <div style="width: 40vw; min-width: 300px;">
-          <p class="text_titles">Skills</p>
+          <p class="text_titles" style="display: flex; justify-content: center; margin-inline: 0;">Skills</p>
           <div class="container_languages">
             <div class="container_languagelogo">
               <!-- <img height="100" width="100" style="filter: invert(100%);" src="https://unpkg.com/simple-icons@v11/icons/c.svg"/> -->
@@ -144,27 +144,39 @@
       </div>
 
       <div id="container_experience" class="container_projects">
-        <p class="text_titles">Experience</p>
-      <div class="systemfont" style="margin-left: 9vw;">
-          <div>
-            <p>Swipesum</p>
-            <p>Software Engineering Intern</p>
-            <p>February 2024 - Present</p>
+        <p class="text_titles" style="margin-bottom: .5rem;">Experience</p>
+        <div class="timeline">
+          <div class="event">
+            <div style="width: 80vw; padding-left: 50px;">
+              <div style="display: flex; flex-direction: row; ">
+                <p>February 2024 - Present</p>
+                <img src="/src/img//experience_logos/swipesum_logo.png" style="height: 50px; width: 50px;"/>
+                <p>Swipesum</p>
+              </div>
+              <p>Software Engineering Intern</p>
+              <p>Insert actual text here</p>
+            </div>
+          </div> 
+          <div class="event">
+            <div>
+              <p>Hack4Impact</p>
+              <p>Developer</p>
+              <p>February 2024 - Present</p>
+            </div>
           </div>
-          <div>
-            <p>Hack4Impact</p>
-            <p>Developer</p>
-            <p>February 2024 - Present</p>
-          </div>
-          <div>
-            <p>Adventure Day Camp</p>
-            <p>Camp Counselor</p>
-            <p>May 2023 - August 2023</p>
-          </div>
-          <div>
-            <p>Buster's Liquors and Wines</p>
-            <p>Retail Associate</p>
-            <p>May 2022 - May 2023</p>
+          <div class="event">
+            <div>
+              <p>Adventure Day Camp</p>
+              <p>Camp Counselor</p>
+              <p>May 2023 - August 2023</p>
+            </div>
+            <div class="event">
+              <div>
+                <p>Buster's Liquors and Wines</p>
+                <p>Retail Associate</p>
+                <p>May 2022 - May 2023</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -255,7 +267,7 @@
           </div>
         </div>
 
-        <div class="container_projects">
+        <div class="container_projects" style="flex-flow: row wrap-reverse;">
           <div class="container_projecttext_left">
             <div>
               <p class="systemfont" style="font-size: 1.2rem;">
@@ -391,7 +403,7 @@
         </div>
       </div>
     <!-- //////////////////////////////////////////// -->
-      <div class="container_projects">
+      <div class="container_projects" style="flex-flow: row wrap-reverse;">
         <div class="container_projecttext_left">
           <div>
             <p style="font-size: 1.2rem;">
