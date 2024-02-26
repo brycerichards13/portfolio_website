@@ -2,9 +2,9 @@ const toggleButton = document.getElementById('button_sidebartoggle');
 
 function ToggleSidebar() {
     if (toggleButton) {
-        let displayStlye = window.getComputedStyle(toggleButton).display;
+        let displayStyle = window.getComputedStyle(toggleButton).display;
 
-        if (displayStlye === 'none') {
+        if (displayStyle === 'none') {
             return;
         }
         else {
