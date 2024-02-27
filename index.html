@@ -22,11 +22,12 @@
       <div id="container_canvas">
         <script type="module" src="/src/main.ts"></script>
         <div class="gs_transition"></div>
-        <!-- <div>
+        <div class="container_controls">
           <p>Controls</p>
-          <p>Move: W, A, S, D</p>
-          <p>Pan: Q, E</p>
-        </div> -->
+          <p>Move: W, A, S, D, Right Mouse Button</p>
+          <p>Pan Left/Right: Q, E, Left Mouse Button</p>
+          <p>Pan Up/Down: R, T</p>
+        </div>
       </div>
 
       <!-- <button id="button_sidebartoggle"> CLICK ME</button> -->
@@ -150,28 +151,33 @@
       <div id="container_experience" class="container_projects">
         <p class="text_titles" style="margin-bottom: .5rem;">Experience</p>
         <div class="timeline">
+          <a href="https://www.swipesum.com/" target="_blank" style="display: block; width: 80vw; height: 300px; position: relative; border: 5px; border-color: white;">
           <div class="event">
             <div style="width: 80vw; padding-left: 50px;">
               <div style="display: flex; flex-direction: row; ">
                 <img src="/src/img//experience_logos/swipesum_logo.png" style="height: 50px; width: 50px;"/>
-                <p>Swipesum</p>
-                <p>February 2024 - Present</p>
+                <p style="padding-left: 1rem; font-size: 1.3rem;"><b>Swipesum</b></p>
+                <p style="padding-left: 11rem; color: rgb(200, 200, 200);">February 2024 - Present</p>
               </div>
               <p>Software Engineering Intern</p>
               <p>Insert actual text here</p>
             </div>
           </div> 
+          </a>
+          <a href="https://hack4impact.org/" target="_blank">
           <div class="event">
             <div style="width: 80vw; padding-left: 50px;">
               <div style="display: flex; flex-direction: row; ">
-              <img src="/src/img//experience_logos/hack4impact_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
-              <p>Hack4Impact</p>
-              <p>February 2024 - Present</p>
-            </div>
+                <img src="/src/img//experience_logos/hack4impact_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
+                <p>Hack4Impact</p>
+                <p>February 2024 - Present</p>
+              </div>
               <p>Developer</p>
               <p>Insert actual text here</p>
             </div>
-          </div> 
+          </div>
+          </a>
+          <a href="https://www.adventuredaycamp.com/" target="_blank">
           <div class="event">
             <div style="width: 80vw; padding-left: 50px;">
               <div style="display: flex; flex-direction: row; ">
@@ -182,10 +188,13 @@
               <p>Camp Counselor</p>
               <p>
                 As a camp counselor, I was responsible for leading 16-18 sixth graders, skillfully balancing firm guidance with patience and understanding to foster an engaging and cohesive group dynamic. 
+                <br>
                 Actively engaged in supervising diverse activities with other counselors, showcasing strong team coordination skills and the ability to foster a collaborative and safe environment.
               </p>
             </div>
           </div> 
+          </a>
+          <a href="https://www.bustersliquors.com/" target="_blank">
           <div class="event">
             <div style="width: 80vw; padding-left: 50px;">
               <div style="display: flex; flex-direction: row; ">
@@ -200,6 +209,7 @@
               </p>
             </div> 
           </div>
+          </a>
         </div>
       </div>
 
@@ -492,7 +502,7 @@
                 </div>
                 <div style="background-color: black; position: relative; z-index: 2;">
                   <img src="/src/img/project_screenshots/gsplat/gsplat_1.gif" width="49.6%">
-                  <img src="/src/img/project_screenshots/gsplat/gsplat_3.gif" width="49.6%">
+                  <img src="/src/img/project_screenshots/gsplat/gsplat_4.gif" width="49.6%">
                 </div>
             </div>
           </a>
@@ -546,7 +556,7 @@
                 <textarea class="input_contactme" placeholder="Write your message here" id="message" name="message" required></textarea>
               </div>
             
-              <button style="background-color: transparent; border-color: transparent; color: rgb(200, 200, 200); cursor: pointer; font-size: 1rem;" type="submit">Send Email</button>
+              <button class="button_contactme" type="submit">Send Email</button>
             </form>
           </div>
 

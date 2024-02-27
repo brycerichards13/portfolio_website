@@ -15,7 +15,8 @@ async function main() {
 
     // await SPLAT.Loader.LoadFromFileAsync("/src/point_cloud.splat", scene, () => {});
 
-    let startPos = new SPLAT.Vector3(4.2388241150117505, -2.4439043478085245, -1.190063843666451);
+    // let startPos = new SPLAT.Vector3(4.2388241150117505, -2.4439043478085245, -1.190063843666451);
+    let startPos = new SPLAT.Vector3(8.185291948706118, -3.922846528200789, -3.791324714928556);
     let startRot = new SPLAT.Quaternion(-0.19189211657561078, -0.43105148200373744, -0.09435678760078532, 0.8766235406901722);
     
     camera.position = startPos;
@@ -106,27 +107,52 @@ async function main() {
     let animationFinished:boolean = false;
     
     // Figure out how to slow forward movement
-    // controls.orbitSpeed = .1;
+    let halfMovement:number = 0;
 
     const frame = () => {
         if (t < animationDuration) {
             
             if (t < 2) {
-                // dispatchCustomKeyboardEvent('keydown', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+                dispatchCustomKeyboardEvent('keyup', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
                 
-                // dispatchCustomKeyboardEvent('keyup', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+                if (halfMovement !== 4) {
+                    dispatchCustomKeyboardEvent('keydown', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+                    halfMovement++;
+                }
+                else {
+                    halfMovement = 0;
+                }
+
+                // dispatchCustomKeyboardEvent('keydown', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+
                 dispatchCustomMouseEvent('mousedown', {clientX: currentX, clientY: currentY, syntheticEvent: true});
-                dispatchCustomMouseEvent('mousemove', {clientX: currentX + 5, clientY: currentY + 5, syntheticEvent: true});
+                dispatchCustomMouseEvent('mousemove', {clientX: currentX + 5, clientY: currentY + 3, syntheticEvent: true});
                 dispatchCustomMouseEvent('mouseup', {clientX: currentX, clientY: currentY, syntheticEvent: true});
                 
-                currentX += 1;
-                currentY += 1;
+                dispatchCustomMouseEvent('mousedown', {button: 2, clientX: currentX, clientY: currentY, syntheticEvent: true});
+                dispatchCustomMouseEvent('mousemove', {button: 2, clientX: currentX + 10, clientY: currentY + 10, syntheticEvent: true});
+                dispatchCustomMouseEvent('mouseup', {button: 2, clientX: currentX, clientY: currentY, syntheticEvent: true});
+                
+                currentX += 5;
+                currentY += 5;
             }
             else {
+                
+                // if (halfMovement !== 4) {
+                //     dispatchCustomKeyboardEvent('keyup', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+                //     halfMovement++;
+                // }
+                // else {
+                //     dispatchCustomKeyboardEvent('keydown', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+                //     halfMovement = 0;
+                // }
+                dispatchCustomKeyboardEvent('keydown', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
+
+
                 dispatchCustomMouseEvent('mousedown', {clientX: currentX, clientY: currentY, syntheticEvent: true});
                 dispatchCustomMouseEvent('mousemove', {clientX: currentX + 5, clientY: currentY - 5, syntheticEvent: true});
                 dispatchCustomMouseEvent('mouseup', {clientX: currentX, clientY: currentY, syntheticEvent: true});
-                console.log('SECOND HALF OF ANIMATION');
+                // console.log('SECOND HALF OF ANIMATION');
 
                 // currentX += 1;
                 // currentY -= 1;
@@ -138,6 +164,7 @@ async function main() {
             // const clickEvent = new MouseEvent('click', {button: 0, bubbles: true});
 
             // console.log('Synthetic input dispatched DONE WOOOO');
+            dispatchCustomKeyboardEvent('keyup', { key: "w", 'code': 'KeyW', bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
 
             dispatchCustomMouseEvent('mouseup', {button: 0, bubbles: true, cancelable: true, composed: true, syntheticEvent: true});
             
@@ -151,7 +178,7 @@ async function main() {
             animationFinished = true;
         }
         
-        // console.log(camera.position.x, camera.position.y, camera.position.z);
+        console.log(camera.position.x, camera.position.y, camera.position.z);
         // console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z, camera.rotation.w);
 
         controls.update();

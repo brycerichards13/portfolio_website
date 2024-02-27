@@ -32,7 +32,10 @@ if (toggleButton) {
 // Attach event listeners to all elements with the class 'button_header'
 document.querySelectorAll('.button_header').forEach(function(button) {
     button.addEventListener('click', function() {
-        ToggleSidebar();
+        let containerHeader = document.getElementById('container_header');
+        if (containerHeader?.style.display !== 'none') {
+            ToggleSidebar();
+        }
 
         if (toggleButton) {
             toggleButton.classList.toggle('opened');
