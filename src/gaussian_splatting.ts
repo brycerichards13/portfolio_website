@@ -178,7 +178,7 @@ async function main() {
             animationFinished = true;
         }
         
-        console.log(camera.position.x, camera.position.y, camera.position.z);
+        // console.log(camera.position.x, camera.position.y, camera.position.z);
         // console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z, camera.rotation.w);
 
         controls.update();

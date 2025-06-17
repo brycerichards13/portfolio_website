@@ -1,0 +1,63 @@
+#container_aboutskills {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  /* height: 100vh; */
+}
+
+/* -------------- New Edits -------------- */
+.block {
+  display: flex;           /* two columns by default */
+  flex-wrap: wrap;         /* 👉 lets them stack automatically */
+  gap: 3rem;               /* space between columns */
+  justify-content: center; /* keeps them centered on big screens */
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* Each child column */
+.block > article {
+  flex: 1 1 320px;         /* grow, shrink, but not below 320 px */
+  max-width: 600px;        /* optional ceiling so lines don’t get too long */
+}
+
+.block {
+  display: flex;           /* two columns by default */
+  flex-wrap: wrap;         /* 👉 lets them stack automatically */
+  gap: 3rem;               /* space between columns */
+  justify-content: center; /* keeps them centered on big screens */
+}
+
+/* Each child column */
+.block > article {
+  flex: 1 1 320px;         /* grow, shrink, but not below 320 px */
+  max-width: 600px;        /* optional ceiling so lines don’t get too long */
+}
+
+.skill-grid {
+  --cell: 130px;                    /* a single source of truth */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--cell), 1fr));
+  gap: 1rem;
+}
+
+.skill-grid li {
+  display: grid;
+  place-items: center;
+  border: 1px solid #3d3d3d;
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: white;
+}
+
+.skill-grid img {
+  width: 80px;                 /* scales down nicely */
+  height: auto;
+  margin-bottom: 0.5rem;
+}

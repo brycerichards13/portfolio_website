@@ -2,8 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_landing.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_aboutskills.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_experience.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_projects.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_contactme.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_footer.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +25,8 @@
   </head>
   <body>
     <div id="app">
-      <div id="container_canvas">
-        <script type="module" src="/src/main.ts"></script>
+      <!-- <div id="container_canvas">
+        <script type="module" src="/src/gaussian_splatting.ts"></script>
         <div class="gs_transition"></div>
         <div class="container_controls">
           <p>Controls</p>
@@ -28,9 +34,7 @@
           <p>Pan Left/Right: Q, E, Left Mouse Button</p>
           <p>Pan Up/Down: R, T</p>
         </div>
-      </div>
-
-      <!-- <button id="button_sidebartoggle"> CLICK ME</button> -->
+      </div> -->
 
       <div id="container_mobileheader">
         <img src="/src/img/project_logos/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
@@ -44,22 +48,22 @@
       </div>
 
       <div id="container_header">
-        <img src="/src/img/project_logos/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
+        <img id="img_desktop_logo" src="/src/img/project_logos/isometricbr_logo.png" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px" style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
         <div class="container_buttonheader">
-          <a href="#container_aboutskills" class="button_header">About Me</a>
+          <a href="#container_aboutskills" class="button_header systemfont">ABOUT ME</a>
         </div>
         <div class="container_buttonheader">
-          <a href="#container_experience" class="button_header">Experience</a>
+          <a href="#container_experience" class="button_header systemfont">EXPERIENCE</a>
         </div>
         <div class="container_buttonheader">
-          <a href="#container_portfolio" class="button_header">Projects</a>
+          <a href="#container_portfolio" class="button_header systemfont">PROJECTS</a>
         </div>
         <div class="container_buttonheader">
           <!-- <p style="color: white;">Contact Me</p> -->
-          <a href="#container_contactme" class="button_header">Contact Me</a>
+          <a href="#container_contactme" class="button_header systemfont">CONTACT ME</a>
         </div>
         <div class="container_buttonheader" style="margin-right: 5.5vw;">
-          <a href="public/Bryce_Richards_Resume.pdf"  class="button_header" target="_blank">View My Resume</a>
+          <a href="public/Bryce_Richards_Resume.pdf"  class="button_header systemfont" target="_blank">RESUME</a>
         </div>
       </div>
 
@@ -80,16 +84,15 @@
           </p>
         </div>
       </div> -->
-      <section id="about-skills" class="block">
-        <article class="about">
-          <h2 class="title">About Me</h2>
-          <p class="body">
+      <div id="container_aboutskills"></div>
+      <div>
+      <section class="block">
+        <article>
+          <p class="title systemfont">ABOUT ME</p>
+          <p>
             I'm Bryce Richards, a graduate from the University of Tennessee with a major in computer science and a minor in data science, with a passion for bringing interesting and unique ideas to life. 
             My background blends academic and professional skill with an entrepreneurial spirit, enabling me to contribute to projects that aim for significant user impact. 
             My approach to development is grounded in practicality but driven by the desire to explore and innovate.
-            <br><br>
-            In my free time, I focus on personal projects that allow me to experiment with new ideas, directly reflecting my reason for pursuing computer science. 
-            These projects provide an outlet for my enjoyment of problem solving and creating. 
             <br><br>
             Outside of computers, I enjoy hanging out with my friends, playing bass, and baking bread.
             <br><br>
@@ -98,7 +101,7 @@
         </article>
 
         <article class="skills">
-          <h2 class="title">Skills</h2>
+          <p class="text_titles systemfont">SKILLS</p>
 
           <ul class="skill-grid">
             <li><img src="/src/img/language_logos/c_logo.svg" alt="C logo"><span>C</span></li>
@@ -117,8 +120,10 @@
         </article>
       </section>
 
-      <div id="container_experience" class="container_projects">
-        <h2 class="title">Experience</h2>
+      <div id="container_experience"></div>
+      <div>
+      <div class="container_projects" style="display: flex; flex-direction: column;">
+        <p class="text_titles systemfont">EXPERIENCE</p>
         <div class="timeline">
           <a href="https://www.swipesum.com/" target="_blank">
           <div class="event">
@@ -167,10 +172,12 @@
           <a href="https://hack4impact.org/" target="_blank">
           <div class="event">
             <div class="container_event">
-              <div class="container_event_header_content">
-                <img src="/src/img//experience_logos/hack4impact_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
-                <p style="padding-left: 1rem; font-size: 1.3rem;"><b>Hack4Impact</b></p>
-                <p style="margin-left: auto; color: rgb(200, 200, 200);">February 2024 - May 2024</p>
+              <div class="container_event_header">
+                <div class="container_event_header_content">
+                  <img src="/src/img//experience_logos/hack4impact_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
+                  <p style="padding-left: 1rem; font-size: 2rem;"><b>Hack4Impact</b></p>
+                </div>
+                <p class="event_time_period">February 2024 - May 2024</p>
               </div>
               <p>Developer</p>
               <p class="systemfont" style="width: 80%; font-size: 1.2rem;">
@@ -181,16 +188,18 @@
                 I am helping build the web app using Next.js, TypeScript, and React.
               </p>
             </div>
-          </div>
+          </div> 
           </a>
           <a href="https://www.adventuredaycamp.com/" target="_blank">
           <div class="event">
             <div class="container_event">
-              <div class="container_event_header_content">
-              <img src="/src/img//experience_logos/adc_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
-              <p style="padding-left: 1rem; font-size: 1.3rem;"><b>Adventure Day Camp</b></p>
-              <p style="margin-left: auto; color: rgb(200, 200, 200);">May 2023 - August 2023</p>
-            </div>
+              <div class="container_event_header">
+                <div class="container_event_header_content">
+                  <img src="/src/img//experience_logos/adc_logo.png" style="height: 50px; width: 50px; border-radius: 5px;"/>
+                  <p style="padding-left: 1rem; font-size: 1.3rem;"><b>Adventure Day Camp</b></p>
+                </div>
+                <p class="event_time_period">May 2023 - August 2023</p>
+              </div>
               <p>Camp Counselor</p>
               <p class="systemfont" style="width: 80%; font-size: 1.2rem;">
                 As a camp counselor, I was responsible for leading 16-18 sixth graders, skillfully balancing firm guidance with patience and understanding to foster an engaging and cohesive group dynamic. 
@@ -200,7 +209,7 @@
             </div>
           </div> 
           </a>
-        </div>
+          </div>
       </div>
 
       <!-- This single line div is just for a place for the header button to scroll to instead of a clipped view -->
@@ -209,48 +218,46 @@
         <!-- <p class="text_titles">PROJECTS</p> -->
         <p class="text_titles systemfont">PROJECTS</p>
 
+        <!-- ------------------------- Fantanofy ------------------------- -->
         <div class="container_projects">
           <a href="https://fantanofy.com" target="_blank" class="container_link_right">
-            <div class="container_projectimg">
+            <div class="container_projectvisuals">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
                   <img src="/src/img/project_logos/fantanofythumbnail.png" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
                   <p class="text_projecttitles">Fantanofy</p>
                 </div>
-                <div class="container_projectimg_images">
+                <div class="container_projectvisuals_images">
                   <img src="/src/img/project_screenshots/fantanofy/fantanofy_1.PNG" alt="Image 1">
                   <img src="/src/img/project_screenshots/fantanofy/fantanofy_3.PNG" alt="Image 2">
-                  <img src=/src/img/project_screenshots/fantanofy/fantanofy_3.PNG alt="Image 3">
-                  <img src=/src/img/project_screenshots/fantanofy/fantanofy_3.PNG alt="Image 4">
+                  <img src=/src/img/project_screenshots/fantanofy/fantanofy_2.PNG alt="Image 3">
+                  <img src=/src/img/project_screenshots/fantanofy/fantanofy_5.PNG alt="Image 4">
                 </div>
-                <!-- <div style="background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/project_screenshots/fantanofy/fantanofy_1.PNG" width="49.6%">
-                  <img src="/src/img/project_screenshots/fantanofy/fantanofy_3.PNG" width="49.6%">
-                </div>
-                <div style="background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/project_screenshots/fantanofy/fantanofy_2.PNG" width="49.6%">
-                  <img src="/src/img/project_screenshots/fantanofy/fantanofy_5.PNG" width="49.6%">
-                </div> -->
             </div>
           </a>
           <div class="container_projecttext_right">
-            <!-- I don't know why, but for some reason adding another div is the only way to get the border to have the correct height -->
-            <div>
             <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
-              <p class="systemfont">
-                A fullstack web application that I built from scratch, which uses Spotify's API to compare their top tracks and albums to albums reviewed by popular critic
-                <a href="https://www.youtube.com/@theneedledrop" target="_blank" style="text-decoration: underline;">Anthony Fantano.</a>
+              <ul class="systemfont text_projecttext">
+                <b style="font-size: 1.8rem;">Music Taste Analyzer Using Spotify & Critic Reviews</b>
                 <br><br>
-                The user logs in in with their Spotify, then my server makes a request to the Spotify API to get the data,
-                compares the user's top tracks and albums to Anthony Fantano's reviews using a MySQL database created from thousands of webscraped reviews, and gives a score based on how similar the user's music taste is to Anthony Fantano's.
-                <br><br>
-                It also allows the user to view all the scores that Anthony Fantano has given the user's top albums and tracks.
-                <br><br>
-                Lastly, since I had an entire database of all of his reviews, I built a stats page which visualizes his different statistics in an engaging and interesting way, which I processed using the Pandas data analysis Python library.
-                <br><br>
-                I created the backend written in Node.js with the Express framework, and the frontend written in responsive HTML, EJS, CSS, and JavaScript.
-                Lastly I deployed the website to AWS on a Linux server with Nginx, added SEO and SSL certification, and it has been used by hundreds of people around the world.
-              </p>
+                Full-stack web application that compares users' Spotify listening habits to music critic 
+                <a href="https://www.youtube.com/@theneedledrop" target="_blank" style="text-decoration: underline;">Anthony Fantano's</a>
+                reviews
+                <div style="padding-left: 5%; padding-top: 0.7rem;">
+                  <li>
+                    Connects to the Spotify API to retrieve user data, including top tracks and albums
+                  </li>
+                  <li>
+                    Scraped and structured thousands of reviews into a MySQL database for real time matching, and designed an engaging visualization page
+                  </li>
+                  <li>
+                    Deployed on a self-hosted Linux server using Docker, Nginx, HTTPS, and SEO optimization
+                  </li>
+                  <li>
+                    Used globally by hundreds of users
+                  </li>
+                </div>
+              </ul>
               <div style="display: flex; flex-flow: row wrap; justify-content: right;">
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
@@ -294,34 +301,136 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- ------------------------- CelebrityTTS ------------------------- -->
+        <div class="container_projects">
+          <a href="https://github.com/brycerichards13/CelebrityTTS" target="_blank" class="container_link_right">
+            <div class="container_projectvisuals">
+                <div class="background_dots"></div>
+                <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
+                  <img src="/src/img/project_logos/tts_icon.svg" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
+                  <p class="text_projecttitles">CelebrityTTS</p>
+                </div>
+                <div class="container_projectvisuals_images">
+                  <img src="/src/img/project_screenshots/tts/tts_demo.gif">
+                  <img src="/src/img/project_screenshots/tts/tts_2.PNG">
+                  <img src="/src/img/project_screenshots/tts/tts_3.gif">
+                  <img src="/src/img/project_screenshots/tts/tts_4.gif">
+                </div>
+            </div>
+          </a>
+          <div class="container_projecttext_right">
+            <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
+              <!-- <p class="systemfont" style="font-size: 0.8rem;">
+                <b style="font-size: 1.8rem;">Custom Text to Speech Voice Generator for Streamers</b>
+                <br><br>
+                This python project integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
+                <br> <br>
+                It includes an interactive GUI, which allows users to input their own text and have it be read out by a chosen celebrity.
+                <br><br>
+                Furthermore, it integrates functionality of the Streamlabs API, a popular software platform that live streamers use for managing their stream.
+                My program allows the user to connect to the Streamlab's API to have the live streamers donations be read out by a chosen celebrity.
+                <br><br>
+                In order to create the training data for the celebrities' voices, I gathered large amounts of clear audio from online sources and split them into hundreds of distinct clips.
+                Then, I transcribed these clips into a CSV file and trained the neural network on a Linux machine using an NVIDIA GPU. I then used these models for generating the speech from the text.
+                <br><br>
+                The GUI is created using a Python library called Tkinter.
+                The program separates the multithreaded GUI application and the voice generation into two separate processes using multiprocessing.
+                <br><br>
+              </p> -->
+              <ul class="systemfont text_projecttext">
+                <b style="font-size: 1.8rem;">Custom Text to Speech Voice Generator for Streamers</b>
+                <br><br>
+                Allows users to generate custom text-to-speech voices of celebrities, and integrates with Streamlabs for live streamers
+                <div style="padding-left: 5%; padding-top: 0.7rem;">
+                  <li>
+                    Integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
+                  </li>
+                  <li>
+                    It includes an interactive GUI, which allows users to input their own text and have it be read out by a chosen celebrity.
+                  </li>
+                  <li>
+                    My program allows the user to connect to the Streamlab's API to have the live streamers donations be read out by a chosen celebrity.
+                  </li>
+                  <li>
+                    Gathered large amounts of clear audio from online sources and split them into hundreds of distinct clips.
+                    <!-- Then, I transcribed these clips into a CSV file and trained the neural network on a Linux machine using an NVIDIA GPU. I then used these models for generating the speech from the text. -->
+                  </li>
+                  <li>
+                    <!-- The GUI is created using a Python library called Tkinter. -->
+                    Utilizes multiprocessing and multithreading to improve performance and responsiveness.
+                  </li>
+                </div>
+              </ul>
+              <div style="display: flex; flex-flow: row wrap; justify-content: right;">
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/python.svg"/>
+                  <p class="text_badges">Python</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/pytorch.svg"/>
+                  <p class="text_badges">Pytorch</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/>
+                  <p class="text_badges">Git</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/linux.svg"/>
+                  <p class="text_badges">Linux</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/microsoftexcel.svg"/>
+                  <p class="text_badges">Excel</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="container_projects" style="flex-flow: row wrap-reverse;">
+        <!-- ------------------------- RecurseAI ------------------------- -->
+        <div class="container_projects">
           <div class="container_projecttext_left">
             <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
-              <p class="systemfont" style="font-size: 1.2rem;">
-                Transforms a standard chatbot into a goal oriented, project-focused tool by enabling the AI to autonomously break down user-inputted single goals into manageable sub-goals that the AI could then use, enhancing the user's experience. 
+              <ul class="systemfont text_projecttext">
+                <b style="font-size: 1.8rem;">Goal Oriented Self Prompting AI Platform</b>
                 <br><br>
-                I participated in a six person team, with agile development practices in mind, conducting regular sprints and team meetings, which honed my collaborative software skills. 
-                I was responsible for many backend features, where I integrated self-prompting capabilities in the AI, allowing for dynamic and autonomous task completion. 
-                <br><br>
-                Alongside this I helped incorporate functionalities for reading files, web searching, and other features, significantly broadening the AI's scope and usability in the real-world. 
-                <!-- This project was built utilizing TypeScript, React, Firebase, and Google's large language model. -->
-              </p>
+                Transforms a standard chatbot into a goal oriented tool that helps users break down large tasks
+                into manageable sub-goals
+                <div style="padding-left: 5%; padding-top: 0.7rem;">
+                  <li>
+                    that the AI could then further break down into smaller tasks and complete.
+                  </li>
+                  <li>
+                    Collaborated in a six person team, with agile development practices
+                    Integrated backend features including self-prompting capabilities in the AI, allowing for dynamic and autonomous task completion. 
+                  </li>
+                  <li>
+                    Alongside this I helped incorporate functionalities for reading files, web searching, and other features, significantly broadening the AI's scope and usability in the real-world. 
+                  </li>
+                  <li>
+                    Built with Next.js 14, Firebase, and NextAuth for secure, full-stack functionality
+                  </li>
+                </div>
+              </ul>
               <div style="display: flex; flex-flow: row wrap; justify-content: right;">
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/nextdotjs.svg"/>
                   <p class="text_badges">Next.js</p>
                 </div>
-                <div class="container_badges">
+                <!-- <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
                   <p class="text_badges">HTML</p>
                 </div>
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/css3.svg"/>
                   <p class="text_badges">CSS</p>
+                </div> -->
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/react.svg"/>
+                  <p class="text_badges">React</p>
                 </div>
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/typescript.svg"/>
@@ -330,10 +439,6 @@
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/>
                   <p class="text_badges">Git</p>
-                </div>
-                <div class="container_badges">
-                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/react.svg"/>
-                  <p class="text_badges">React</p>
                 </div>
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/figma.svg"/>
@@ -347,181 +452,87 @@
             </div>
           </div>
           <a href="https://github.com/brycerichards13/recurseAI" target="_blank" class="container_link_left">
-            <div class="container_projectimg">
+            <div class="container_projectvisuals">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
                   <img src="/src/img/project_logos/recurseAi_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
-                  <p class="text_projecttitles">recurseAi</p>
+                  <p class="text_projecttitles">RecurseAi</p>
                 </div>
-                <div style="background-color: black; position: relative; z-index: 2;">
+                <div class="container_projectvisuals_images">
                   <img src="/src/img/project_screenshots/recurseAi/recurseai_1.png" width="49.6%">
                   <img src="/src/img/project_screenshots/recurseAi/recurseai_2.png" width="49.6%">
-                </div>
-                <div style="background-color: black; position: relative; z-index: 2;">
                   <img src="/src/img/project_screenshots/recurseAi/recurseai_5.png" width="49.6%">
                   <img src="/src/img/project_screenshots/recurseAi/recurseai_3.png" width="49.6%">
                 </div>
             </div>
           </a>
         </div>
-      </div>
-    <!-- /////////////// -->
-      <div class="container_projects">
-        <a href="https://github.com/brycerichards13/CelebrityTTS" target="_blank" class="container_link_right">
-          <div class="container_projectimg">
-              <div class="background_dots"></div>
-              <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_logos/tts_icon.svg" style="padding-right: 20px; filter: invert(100%);" width="64px" height="64px"></img>
-                <p class="text_projecttitles" style="font-size: 60px;">Celebrity Text To Speech</p>
-              </div>
-              <div style="background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_screenshots/tts/tts_demo.gif" width="49.6%">
-                <img src="/src/img/project_screenshots/tts/tts_2.PNG" width="49.6%">
-              </div>
-              <div style="background-color: black; position: relative; z-index: 2;">
-                <img src="/src/img/project_screenshots/tts/tts_3.gif" width="49.6%">
-                <img src="/src/img/project_screenshots/tts/tts_4.gif" width="49.6%">
-              </div>
-          </div>
-        </a>
-        <div class="container_projecttext_right">
-          <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
-            <p class="systemfont" style="font-size: 1.2rem;">
-              This python project integrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
-              <br> <br>
-              It includes an interactive GUI, which allows users to input their own text and have it be read out by a chosen celebrity.
-              <br><br>
-              Furthermore, it integrates functionality of the Streamlabs API, a popular software platform that live streamers use for managing their stream.
-              My program allows the user to connect to the Streamlab's API to have the live streamers donations be read out by a chosen celebrity.
-              <br><br>
-              In order to create the training data for the celebrities' voices, I gathered large amounts of clear audio from online sources and split them into hundreds of distinct clips.
-              Then, I transcribed these clips into a CSV file and trained the neural network on a Linux machine using an NVIDIA GPU. I then used these models for generating the speech from the text.
-              <br><br>
-              The GUI is created using a Python library called Tkinter.
-              The program separates the multithreaded GUI application and the voice generation into two separate processes using multiprocessing.
-              <br><br>
-              Examples of the text output can be played here.
-            </p>
-            <div>
-              <audio controls>
-                <source src="/src/audio/default.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
-              <audio controls>
-                <source src="/src/audio/elon.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/python.svg"/>
-                <p class="text_badges">Python</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/pytorch.svg"/>
-                <p class="text_badges">Pytorch</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/>
-                <p class="text_badges">Git</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/linux.svg"/>
-                <p class="text_badges">Linux</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/microsoftexcel.svg"/>
-                <p class="text_badges">Excel</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- //////////////////////////////////////////// -->
-      <div class="container_projects" style="flex-flow: row wrap-reverse;">
-        <div class="container_projecttext_left">
-          <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
-            <p style="font-size: 1.2rem;">
-              This is my personal website that I built from scratch using HTML, CSS, and JavaScript. I wanted to create a website that was visually engaging and unique, but also related to me and my interests.
-              <br><br>
-              The top rendering is made utilizing a fork of the Three.js library specifically designed for a special rendering technique called gaussian splatting, which I am currently working on a project to utilize.
-              <br><br>
-              I created the scene in blender, rendered out the frames, turned it into a 3D gaussian splatting model, and then used the Three.js library to display it on the website.
-              I then took photos of myself, removed the background in Photoshop, and added them to the 3D scene.
-            </p>
-            <div style="display: flex; flex-flow: row wrap; justify-content: right;">
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
-                <p class="text_badges">HTML</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/css3.svg"/>
-                <p class="text_badges">CSS</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/javascript.svg"/>
-                <p class="text_badges" style="font-size: .8rem;">JavaScript</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/>
-                <p class="text_badges">Git</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/vite.svg"/>
-                <p class="text_badges">Vite</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/adobephotoshop.svg"/>
-                <p class="text_badges" style="font-size: .8rem;">Photoshop</p>
-              </div>
-              <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/blender.svg"/>
-                <p class="text_badges">Blender</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="https://github.com/brycerichards13/portfolio_website" class="container_link_left" target="_blank">
-          <div class="container_projectimg">
-            <div class="background_dots"></div>
-            <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-              <img src="/src/img/project_logos/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
-              <p class="text_projecttitles">Personal Website</p>
-            </div>
-            <div style="background-color: black; position: relative; z-index: 2;">
-              <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess2.PNG" width="49.6%">
-              <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess1.PNG" width="49.6%">
-            </div>
-          </div>
-        </a>
-      </div>
 
+        <!-- ------------------------- Senior Design ------------------------- -->
         <div class="container_projects">
           <a target="_blank" class="container_link_right">
-            <div class="container_projectimg">
+            <div class="container_projectvisuals">
                 <div class="background_dots"></div>
                 <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-                  <p class="text_projecttitles">Currently In Progress</p>
+                  <p class="text_projecttitles" style="font-size: 3.8rem;">Senior Design</p>
                 </div>
-                <div style="background-color: black; position: relative; z-index: 2;">
-                  <img src="/src/img/project_screenshots/gsplat/gsplat_1.gif" width="49.6%">
-                  <img src="/src/img/project_screenshots/gsplat/gsplat_4.gif" width="49.6%">
+                <div class="container_projectvisuals_images">
+                  <img src="/src/img/project_screenshots/gsplat/gsplat_1.gif">
+                  <img src="/src/img/project_screenshots/gsplat/gsplat_4.gif">
                 </div>
             </div>
           </a>
           <div class="container_projecttext_right">
             <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
-              <p class="systemfont" style="font-size: 1.2rem;">
+              <ul class="systemfont text_projecttext">
+                <b style="font-size: 1.8rem;">Smooth Digital Tours Using Advanced Gaussian Splatting</b>
+                <br><br>
                 I'm currently working on a project utilizing a new rendering technique called gaussian splatting to allow property management companies to be able to take photos of the inside of available apartments, process it, and turn it into a
-                3D model that can be viewed by prospective customers on their website.
+                <div style="padding-left: 5%; padding-top: 0.7rem;">
+                  <li>
+                    Placeholder
+                  </li>
+                  <li>
+                    Placeholder
+                  </li>
+                </div>
+              </ul>
+              <div style="display: flex; flex-flow: row wrap; justify-content: right;">
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
+                  <p class="text_badges">HTML</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------------------- Personal Website ------------------------- -->
+        <div class="container_projects">
+          <div class="container_projecttext_left">
+            <div style="border: 1px solid rgb(61, 61, 61); padding: 1rem; border-radius: 10px;">
+              <ul class="systemfont text_projecttext">
+                <b style="font-size: 1.8rem;">Placeholder</b>
                 <br><br>
-                This will allow for engaging, memorable full 3D tours of apartments that the user can move around in, which will be a huge improvement over the current techniques being used. 
+                Built a fully custom personal website using HTML, CSS, and JavaScript, featuring a dynamic 3D header scene rendered with a fork of Three.js supporting gaussian splatting.
+                <div style="padding-left: 5%; padding-top: 0.7rem;">
+                  <li>
+                    Created the 3D scene in Blender, converted it into a gaussian splatting model, and integrated it into the sitentegrates neural network models I trained utilizing the PyTorch TacoTron 2/Wavenet architecture for voice synthesis from text.
+                  </li>
+                  <li>
+                    Combined real photography with custom 3D rendering to create a unique, visually engaging personal brand experience
+                  </li>
+                </div>
+              </ul>
+              <!-- <p class="systemfont" style="font-size: 0.8rem;">
+                This is my personal website that I built from scratch using HTML, CSS, and JavaScript. I wanted to create a website that was visually engaging and unique, but also related to me and my interests.
                 <br><br>
-                It would also require no special equipment, and can be done by anyone with a smartphone. In fact, the 3D rendering at the top of this website is a demonstration of this technique.
+                The top rendering is made utilizing a fork of the Three.js library specifically designed for a special rendering technique called gaussian splatting, which I am currently working on a project to utilize.
                 <br><br>
-                The GIF shown is actually my college apartment kitchen, which I took photos of from my phone, and processed on my consumer grade graphics card, although the image quality is worse due to GIF compression to save space.
-              </p>
-              <!-- <div style="display: flex; flex-flow: row wrap; justify-content: right;">
+                I created the scene in blender, rendered out the frames, turned it into a 3D gaussian splatting model, and then used the Three.js library to display it on the website.
+                I then took photos of myself, removed the background in Photoshop, and added them to the 3D scene.
+              </p> -->
+              <div style="display: flex; flex-flow: row wrap; justify-content: right;">
                 <div class="container_badges">
                   <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg"/>
                   <p class="text_badges">HTML</p>
@@ -531,68 +542,100 @@
                   <p class="text_badges">CSS</p>
                 </div>
                 <div class="container_badges">
-                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/typescript.svg"/>
-                  <p class="text_badges">TypeScript</p>
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/javascript.svg"/>
+                  <p class="text_badges" style="font-size: .8rem;">JavaScript</p>
                 </div>
-              </div> -->
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/git.svg"/>
+                  <p class="text_badges">Git</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/vite.svg"/>
+                  <p class="text_badges">Vite</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/adobephotoshop.svg"/>
+                  <p class="text_badges" style="font-size: .8rem;">Photoshop</p>
+                </div>
+                <div class="container_badges">
+                  <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/blender.svg"/>
+                  <p class="text_badges">Blender</p>
+                </div>
+              </div>
             </div>
           </div>
+          <a href="https://github.com/brycerichards13/portfolio_website" class="container_link_left" target="_blank">
+            <div class="container_projectvisuals">
+                <div class="background_dots"></div>
+                <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
+                  <img src="/src/img/project_logos/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
+                  <p class="text_projecttitles">Personal Website</p>
+                  <br><br>
+                </div>
+                <div class="container_projectvisuals_images">
+                  <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess2.PNG">
+                  <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess1.PNG">
+                </div>
+            </div>
+          </a>
         </div>
 
-      <div id="container_contactme">
-        <p class="text_titles" style="height: 4rem;">Contact Me</p>
+
+      </div>
+
+      <div id="container_contactme"></div>
+      <div>
+        <p class="text_titles systemfont">CONTACT ME</p>
         <div style="margin-left: 8vw; font-size: 1.5rem;">
           <div>
             <p style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Get in touch or email directly at <b>brycerichards13@gmail.com</b>
-  
-            <form class="form_contactme" action="https://formspree.io/f/xrgnqrvj" method="POST">
-              <div>
-                <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">NAME</label>
-                <input class="input_contactme" placeholder="Your name" type="text" id="name" name="name" required>
-              </div>
-            
-              <div>
-                <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">EMAIL</label>
-                <input class="input_contactme" placeholder="Your email" type="email" id="email" name="_replyto" required>
-              </div>
-            
-              <div style="display: flex; flex-direction: row;">
-                <p for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1rem;">YOUR <br> MESSAGE</p>
-                <textarea class="input_contactme" placeholder="Write your message here" id="message" name="message" required></textarea>
-              </div>
-            
-              <button class="button_contactme" type="submit">Send Email</button>
-            </form>
+              
+              <form class="form_contactme" action="https://formspree.io/f/xrgnqrvj" method="POST">
+                <div>
+                  <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">NAME</label>
+                  <input class="input_contactme" placeholder="Your name" type="text" id="name" name="name" required>
+                </div>
+                
+                <div>
+                  <label for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1.8rem;">EMAIL</label>
+                  <input class="input_contactme" placeholder="Your email" type="email" id="email" name="_replyto" required>
+                </div>
+              
+                <div style="display: flex; flex-direction: row;">
+                  <p for="name" class="systemfont" style="color: white; font-size: .8rem; margin-right: 1rem;">YOUR <br> MESSAGE</p>
+                  <textarea class="input_contactme" placeholder="Write your message here" id="message" name="message" required></textarea>
+                </div>
+              
+                <button class="button_contactme" type="submit">Send Email</button>
+              </form>
           </div>
-
           <p style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Or you can find me on these links</p>
           <div style="display: flex; flex-direction: row; align-items: center;">
             <div>
-              <a href="https://www.linkedin.com/in/bryce-richards-085312237/">
+              <a href="https://www.linkedin.com/in/bryce-richards-085312237/" target="_blank">
                 <img src="/src/img/socialmedia_logos/linkedin_logo.png" width="50px" height="50px"></img>
               </a>
               <!-- <p>Linkedin</p> -->
             </div>
             <div style="padding-left: 2rem;">
-              <a href="https://github.com/brycerichards13">
+              <a href="https://github.com/brycerichards13" target="_blank">
                 <img src="/src/img/socialmedia_logos/github_logo.png" width="50px" height="50px"></img>
               </a>
               <!-- <p>GitHub</p> -->
             </div>
           </div>
         </div>
+
       </div>
 
-      <div style="display: flex; justify-content: center;" >
-        <!-- <button onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" title="Go to top">Top</button> -->
-        <div id="button_totop" class="arrow arrow--up">
-          <span></span>
-        </div>
+      <div id="button_totop">
+        <div class="arrow_up">▲</div>
+        <div class="dots_background_totop"></div>
       </div>
-    </div>
 
-    <div class="container_footer overlay_footer">
-      <p> 2024 Bryce Richards</p>
+      <div class="container_footer overlay_footer">
+        <p> 2025 Bryce Richards</p>
+      </div>
     </div>
   </body>
 </html>

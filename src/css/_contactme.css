@@ -1,0 +1,38 @@
+/* MAKE THE ID/CLASS SCHEME CONSISTENT */
+#container_contactme {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* height: 100vh; */
+}
+
+.form_contactme {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  width: 30%;
+}
+
+.input_contactme {
+  color: white;
+  /* background-color: rgb(15, 15, 15); */
+  background-color: transparent;
+  border-color: transparent;
+  margin-block: 1rem;
+}
+
+.button_contactme {
+  margin-top: 1rem;
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(230, 230, 230);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.button_contactme:hover {
+  color: rgb(180, 180, 180);
+}

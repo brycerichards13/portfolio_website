@@ -1,0 +1,151 @@
+/* Initial state: hidden and slightly translated upwards */
+.container_projects {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.5s ease-out;
+  position: relative;
+  padding-bottom: 8rem;
+}
+
+/* State when the element is in view */
+.container_projects.in-view {
+  display: flex;
+  flex-flow: row wrap;
+  width: 95vw;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 1;
+  gap: 2rem;
+  transform: translateY(0);
+  box-sizing: border-box;
+}
+
+.container_projectvisuals {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* max-width: 600px; */
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+.container_projectvisuals_images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+  grid-gap: 10px; /* Adds spacing between the images */
+  z-index: 2;
+  background-color: black;
+}
+
+.container_projectvisuals_images img {
+  width: 100%; /* Makes the images responsive */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Prevents images from distorting */
+}
+
+/* Direct children of .container_projects.in-view are the columns */
+.container_projects.in-view > .container_link_left,
+.container_projects.in-view > .container_link_right,
+.container_projects.in-view > .container_projecttext_left,
+.container_projects.in-view > .container_projecttext_right {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: calc(50% - 1rem); /* Each column aims for 50% width minus half the gap */
+  max-width: 600px; /* Max width for each column item */
+  min-width: 300px; /* Minimum width before stacking might be preferred by media query */
+  box-sizing: border-box;
+}
+
+.background_dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, #ffffff 2px, transparent 2px), radial-gradient(circle, #ffffff 2px, transparent 2px);
+  background-size: 10px 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Move the background dots back and the project visuals up when hovering over the visuals */
+.container_link_left:hover .container_projectvisuals {
+  transform: translate(-20px, -20px);
+}
+.container_link_right:hover .container_projectvisuals {
+  transform: translate(20px, -20px);
+}
+.container_link_left:hover .background_dots {
+  transform: translate(40px, 40px);
+}
+.container_link_right:hover .background_dots {
+  transform: translate(-40px, 40px);
+}
+
+.container_projecttext_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  /* width: 100%; */
+}
+
+.container_projecttext_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  /* width: 100%; */
+}
+
+.text_projecttext {
+  color: white;
+  font-size: 1rem;
+  padding-left: 0;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .container_projects.in-view {
+    width: 90vw; /* Adjust width for smaller screens if needed */
+    gap: 1.5rem; /* Optionally adjust gap */
+  }
+
+  .container_projects.in-view > .container_link_left,
+  .container_projects.in-view > .container_link_right,
+  .container_projects.in-view > .container_projecttext_left,
+  .container_projects.in-view > .container_projecttext_right {
+    flex-basis: 100%; /* Each column item takes full width, forcing them to stack */
+    max-width: 100%;  /* Allow them to use the full width of the stacked layout */
+    min-width: unset; /* Reset min-width if it was causing issues */
+    margin-left: 0; /* Ensure no extra margins interfere */
+    margin-right: 0;
+  }
+  
+  /* Ensure visuals are on top when stacked */
+  .container_projects.in-view > .container_link_left,
+  .container_projects.in-view > .container_link_right {
+    order: 1; /* Visuals first */
+  }
+
+  .container_projects.in-view > .container_projecttext_left,
+  .container_projects.in-view > .container_projecttext_right {
+    order: 2; /* Text second */
+  }
+}
+
+.text_projecttitles {
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  /* font-family: 'Aboreto', system-ui; */
+  /* font-family: 'Cormorant SC', serif; */
+  font-family: 'Bona Nova', serif;
+  margin: 0;
+  /* margin-left: 11vw; */
+  padding: 0;
+}
