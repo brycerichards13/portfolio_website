@@ -1,55 +1,58 @@
 /* ------------- Canvas ------------- */
-#container_canvas {
-  position: relative;
-}
-
-.container_controls {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: .8rem;
-  border: 1px solid rgb(61, 61, 61);
-  border-radius: 5px;
-  padding: .4rem;
-  opacity: .7;
-}
-
-.gs_transition {
-  position: absolute;
-  bottom: 0;
+.landing_transitions {
+  position: absolute; /* Ensures it overlays the content */
+  top: 0;
   left: 0;
-  right: 0;
-  height: 100px; /* Adjust the height as needed */
-  background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0));
-  z-index: 10;
+  width: 100%; /* Matches the width of the parent */
+  height: 100%; /* Matches the height of the parent */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, black 100%);
+  pointer-events: none; /* Prevents interaction with the vignette */
+  z-index: 3; /* Places it behind the content */
 }
 
 /* ------------- Header ------------- */
-#container_header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100px;
-  background: #000000;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 30;
-}
-
-.container_buttonheader {
-  width: 200px;
+.container_buttonheader{
+  position: relative;
+  width: 200px;               /* keep your old size */
+  height: 60px;;
+  overflow: hidden;           /* clip the dot layer when it slides */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  background-color: rgb(0, 0, 0);
-  color: black;
-  font-size: 25px;
-  font-family: 'Cormorant SC', serif;
+  flex: 0 0 auto;             /* prevents line-wrapping in the header */
 }
+
+.background_header_dots{
+  position: absolute;
+  inset: 0;                   /* fill the wrapper */
+  background-image: radial-gradient(circle,#fff 2px,transparent 2px);
+  background-size: 10px 10px;
+  transition: transform .3s ease-in-out;
+  z-index: 1;
+}
+
+.button_header{
+  position: relative;
+  z-index: 2;                 /* above the dots */
+  width: 100%;                /* fill the wrapper */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: #000;           /* solid black foreground */
+  color: #fff;
+  font-size: 25px;            /* your original type scale */
+  transition: transform .3s ease-in-out;
+}
+
+.container_buttonheader:hover .button_header{
+  transform: translate(-8px,-8px);
+}
+.container_buttonheader:hover .background_header_dots{
+  transform: translate(8px,8px);
+}
+
 
 
 .button_header:link, .button_header:visited, .button_header:hover, .button_header:active {

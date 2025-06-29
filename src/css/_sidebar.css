@@ -37,6 +37,15 @@
   stroke-width: 6;
 }
 
+#container_header {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  background-color: black;
+  z-index: 20;
+}
+
 @media screen and (max-width: 768px) {
 /* @media screen and (max-width: 2000px) { */
   #button_sidebartoggle {

@@ -1,10 +1,3 @@
-#container_experience {
-  display: flex;
-  flex-flow: column;
-  /* align-items: center; */
-  /* justify-content: space-around; */
-}
-
 .timeline {
   margin: 0 10vw; 
   padding-top: 50px; 

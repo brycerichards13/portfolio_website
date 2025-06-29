@@ -1,0 +1,66 @@
+/* * 2. The canvas for our starfield.
+         * position: absolute confines it to the nearest 'position: relative' parent,
+         * which is now our '.block' div.
+        */
+.block {
+    position: relative;
+    background-color: #000000;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    overflow: hidden; /* This clips the canvas to the container's bounds */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the vignette and content */
+}
+
+/* * 3. The vignette overlay. Also positioned absolutely within '.block'.
+*/
+.vignette {
+    position: absolute; /* Ensures it stays within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5) 100%); /* Smooth vignette effect */
+    z-index: 1; /* Places it behind the content */
+    pointer-events: none; /* Prevents interaction */
+}
+
+/* * 4. Your content wrapper.
+    * position: relative allows us to give it a z-index, ensuring it
+    * always appears on top of the background effect.
+*/
+.block article {
+    position: relative;
+    z-index: 3; /* Places the text on top of everything else */
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden; /* Ensures vignette doesn't exceed content bounds */
+}
+
+/* Your original text styling */
+.block .title {
+    font-family: 'VT323', monospace;
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.block p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.block b {
+        color: #ffffff;
+}
