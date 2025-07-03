@@ -8,31 +8,27 @@
 
 /* -------------- New Edits -------------- */
 .block {
-  display: flex;           /* two columns by default */
-  flex-wrap: wrap;         /* 👉 lets them stack automatically */
-  gap: 3rem;               /* space between columns */
-  justify-content: center; /* keeps them centered on big screens */
-  padding-left: 5vw;
-  padding-right: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center; /* Horizontally center the items */
+  align-items: center;     /* Vertically center the items */
+  padding: 2rem 5vw 12rem 5vw;
+  width: 100%;
+  box-sizing: border-box;  /* Ensures padding doesn't add to the width */
 }
 
 /* Each child column */
 .block > article {
-  flex: 1 1 320px;         /* grow, shrink, but not below 320 px */
-  max-width: 600px;        /* optional ceiling so lines don’t get too long */
+  flex: 1 1 320px;
+  max-width: 600px;
 }
 
-.block {
-  display: flex;           /* two columns by default */
-  flex-wrap: wrap;         /* 👉 lets them stack automatically */
-  gap: 3rem;               /* space between columns */
-  justify-content: center; /* keeps them centered on big screens */
-}
-
-/* Each child column */
-.block > article {
-  flex: 1 1 320px;         /* grow, shrink, but not below 320 px */
-  max-width: 600px;        /* optional ceiling so lines don’t get too long */
+/* Center the image on smaller screens */
+.block > article:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -------------- Skills -------------- */
@@ -44,7 +40,7 @@
 }
 
 .skills-wrapper{
-  width:100%;
+  width:80%;
   max-width:1000px;
   display:grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));

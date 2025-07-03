@@ -140,12 +140,32 @@
 }
 
 .text_projecttitles {
-  color: rgb(255, 255, 255);
+  color: white;
   font-size: 4rem;
-  /* font-family: 'Aboreto', system-ui; */
-  /* font-family: 'Cormorant SC', serif; */
-  font-family: 'Bona Nova', serif;
   margin: 0;
-  /* margin-left: 11vw; */
   padding: 0;
+}
+
+.container_badges {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100px; 
+  height: 30px;
+  margin: 5px;
+
+  font-size:0.9rem;
+  opacity:0.9;
+  background:rgba(255,255,255,0.1);
+  padding:6px 10px;
+  border-radius:12px;
+  border:1px solid rgba(255, 255, 255, .15);
+  color: white;
+  backdrop-filter: blur(25px);
+}
+
+.container_badges img {
+  filter: invert(1);;
+  padding-right: 0.4rem;
 }

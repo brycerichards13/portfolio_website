@@ -1,32 +1,3 @@
-const toggleButton = document.getElementById('button_sidebartoggle');
-
-function ToggleSidebar() {
-    if (toggleButton) {
-        let displayStyle = window.getComputedStyle(toggleButton).display;
-
-        if (displayStyle === 'none') {
-            return;
-        }
-
-        const containerHeader = document.getElementById('container_header');
-        if (containerHeader) {
-            containerHeader.classList.toggle('active');
-
-            if (containerHeader.classList.contains('active')) {
-                document.body.style.overflow = 'hidden'; 
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-    }
-}
-
-if (toggleButton) {
-    toggleButton.addEventListener('click', function() {
-        ToggleSidebar();
-    });
-}
-
 // Button to scroll to the top of the page
 document.addEventListener('DOMContentLoaded', () => {
     const toTopButton = document.getElementById('button_totop');
@@ -39,31 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.querySelectorAll('.button_header').forEach(function(navButton) {
-    navButton.addEventListener('click', function() {
-        const containerHeader = document.getElementById('container_header'); // The sidebar content element
-        const hamburgerButton = document.getElementById('button_sidebartoggle'); // The hamburger icon itself
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebarToggle = document.getElementById('button_sidebartoggle');
+  const headerContainer = document.getElementById('container_header');
+  // Select all the navigation links inside the header
+  const navButtons = document.querySelectorAll('#container_header .button_header');
 
-        // Check if the sidebar (containerHeader) is currently active (i.e., open)
-        if (containerHeader && containerHeader.classList.contains('active')) {
-            // And if the hamburger button is visible (meaning we are likely in a mobile/sidebar context)
-            if (hamburgerButton && window.getComputedStyle(hamburgerButton).display !== 'none') {
-                ToggleSidebar(); // This will close the sidebar and set body.style.overflow = 'auto'
-            } else if (hamburgerButton && window.getComputedStyle(hamburgerButton).display === 'none') {
-                // Desktop context, but containerHeader was 'active'. This is unusual for simple nav.
-                // Force remove 'active' and ensure scrolling is enabled.
-                containerHeader.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
+  // Function to close the sidebar
+  function closeSidebar() {
+    sidebarToggle.classList.remove('opened');
+    headerContainer.classList.remove('active');
+  }
 
-        // After clicking a nav link, ensure the hamburger icon itself is visually set to 'closed'.
-        // The hamburger button's inline onclick toggles its state, so if it was open, we need to ensure it's now closed.
-        if (hamburgerButton && hamburgerButton.classList.contains('opened')) {
-            hamburgerButton.classList.remove('opened');
-            hamburgerButton.setAttribute('aria-expanded', 'false');
-        }
+  // --- Logic for the Hamburger Toggle Button ---
+  sidebarToggle.addEventListener('click', function() {
+    this.classList.toggle('opened');
+    headerContainer.classList.toggle('active');
+  });
+
+  // --- FIX: Add click listeners to all nav buttons ---
+  // Loop through each navigation button
+  navButtons.forEach(button => {
+    // When a button is clicked...
+    button.addEventListener('click', function() {
+      // ...close the sidebar.
+      closeSidebar();
     });
+  });
 });
 
 // Fade in animation for projects
@@ -83,6 +56,22 @@ document.addEventListener("DOMContentLoaded", (): void => {
     targets.forEach((target: Element): void => {
         observer.observe(target);
     });
+});
+
+const cards=document.querySelectorAll('.skill-card');
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+    if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform='translateY(0)';
+    }
+    });
+},{threshold:0.3});
+
+cards.forEach(card=>{
+    card.style.opacity=0;
+    card.style.transform='translateY(40px)';
+    observer.observe(card);
 });
   
 

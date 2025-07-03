@@ -1,92 +1,156 @@
-#container_mobileheader {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: rgb(255, 255, 255);
-  stroke-width: 6;
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.line1 {
-  stroke-dasharray: 60 207;
-  stroke-width: 6;
-}
-.line2 {
-  stroke-dasharray: 60 60;
-  stroke-width: 6;
-}
-.line3 {
-  stroke-dasharray: 60 207;
-  stroke-width: 6;
-}
-.opened .line1 {
-  stroke-dasharray: 90 207;
-  stroke-dashoffset: -134;
-  stroke-width: 6;
-}
-.opened .line2 {
-  stroke-dasharray: 1 60;
-  stroke-dashoffset: -30;
-  stroke-width: 6;
-}
-.opened .line3 {
-  stroke-dasharray: 90 207;
-  stroke-dashoffset: -134;
-  stroke-width: 6;
-}
+/* ==========================================================================
+   Base & Common Styles
+   ========================================================================== */
 
 #container_header {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch; /* FIX: Changed from 'center' to 'stretch' to make children fill the full height. */
   position: sticky;
   top: 0;
   background-color: black;
   z-index: 20;
+  padding: 0 5.5vw;
+  gap: 20px;
+}
+
+.container_header_buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: stretch; /* FIX: Also set to stretch to fill the height of the header. */
+}
+
+
+/* ==========================================================================
+   Navigation Button Styles (Shared by Desktop & Mobile)
+   ========================================================================== */
+
+.container_buttonheader {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.button_header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* FIX: This now correctly fills the stretched parent container. */
+  padding: 15px 30px;
+  background: #000;
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out, font-size 0.3s ease, padding 0.3s ease;
+}
+
+.background_header_dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #fff 2px, transparent 2px);
+  background-size: 10px 10px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.container_buttonheader:hover .button_header {
+  transform: translate(-8px, -8px);
+}
+
+.container_buttonheader:hover .background_header_dots {
+  transform: translate(8px, 8px);
+}
+
+
+/* ==========================================================================
+   Mobile Header & Sidebar (Initially Hidden)
+   ========================================================================== */
+
+#container_mobileheader {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: #000000;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 100px;
+}
+
+#button_sidebartoggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 31;
+  padding: 0; /* Remove default padding */
+  margin-left: auto; /* Push to the far right */
+}
+
+/* Hamburger menu icon line styles */
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 { stroke-dasharray: 60 207; }
+.line2 { stroke-dasharray: 60 60; }
+.line3 { stroke-dasharray: 60 207; }
+
+/* Hamburger 'X' state */
+.opened .line1 { stroke-dasharray: 90 207; stroke-dashoffset: -134; }
+.opened .line2 { stroke-dasharray: 1 60; stroke-dashoffset: -30; }
+.opened .line3 { stroke-dasharray: 90 207; stroke-dashoffset: -134; }
+
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+  .button_header {
+    font-size: 20px;
+    padding: 12px 25px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .button_header {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-/* @media screen and (max-width: 2000px) { */
-  #button_sidebartoggle {
-    display: block;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    margin-left: auto;
-    background-color: black;
-    border: none;
-    cursor: pointer;
-    margin-right: 10%;
-  }
-
-  #img_desktop_logo {
+  #img_desktop_logo { /* Hide desktop logo on mobile */
     display: none;
   }
 
   #container_mobileheader {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    height: 50px;
-    background: #000000;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 30;
   }
 
   #container_header {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    padding: 0;
+    gap: 20px;
     background-color: rgb(0, 0, 0);
     z-index: 10;
     transform: translateX(100%);
@@ -97,8 +161,19 @@
     transform: translateX(0);
   }
 
-  /* .container_buttonheader {
-    display: none;
-  } */
+  /* FIX: Show the button container in the active sidebar and stack them vertically. */
+  #container_header .container_header_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    gap: 20px;
+  }
   
+  #container_header .button_header {
+    font-size: 25px;
+    padding: 20px 40px;
+  }
 }

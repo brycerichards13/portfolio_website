@@ -36,25 +36,22 @@
     <div id="container_mobileheader">
       <img src="/src/img/project_logos/isometricbr_logo.png"
         onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px"
-        style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
-      <button id="button_sidebartoggle"
-        onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))">
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <path class="line line1"
-            d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+        style="cursor: pointer; margin-left: 10px;">
+      <button id="button_sidebartoggle">
+        <svg width="60" height="60" viewBox="0 0 100 100">
+          <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
           <path class="line line2" d="M 20,50 H 80" />
-          <path class="line line3"
-            d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+          <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
         </svg>
       </button>
     </div>
 
-    <!-- ######################### Desktop Header ######################### -->
     <div id="container_header">
       <img id="img_desktop_logo" src="/src/img/project_logos/isometricbr_logo.png"
-        onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="100px" height="100px"
-        style="margin-right: auto; margin-left: 5.5vw; justify-self: flex-start; cursor: pointer;">
-      <div style="display: flex;">
+        onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;" width="64px" height="64px"
+        style="cursor: pointer;">
+      
+      <div class="container_header_buttons">
         <div class="container_buttonheader">
           <span class="background_header_dots"></span>
           <a href="#container_aboutskills" class="button_header">ABOUT ME</a>
@@ -71,38 +68,37 @@
           <span class="background_header_dots"></span>
           <a href="#container_contactme" class="button_header">CONTACT ME</a>
         </div>
-        <div class="container_buttonheader" style="margin-right: 5.5vw;">
+        <div class="container_buttonheader">
           <span class="background_header_dots"></span>
           <a href="public/Bryce_Richards_Resume.pdf" class="button_header" target="_blank">RESUME</a>
         </div>
       </div>
     </div>
 
-    <canvas id="starfield"></canvas>
-    
     <!-- ######################### About / Skills ######################### -->
     <div id="container_aboutskills"></div>
-    <div class="block" id="container_aboutskills_block" style="height: 95vh;">
+    <div class="block" id="container_aboutskills_block">
       <canvas id="starfield"></canvas>
       
       <article>
         <div>
-          <div class="vignette"></div>
+          <!-- <div class="vignette"></div> -->
           <p class="title">ABOUT ME</p>
-          <p>
-            I'm Bryce Richards, a graduate from the University of Tennessee with a major in computer science and a minor
-            in data science, with a passion for bringing interesting and unique ideas to life. I'm currently relocating to New York and actively looking for developer roles in the area.
+          <p style="border:1px solid rgb(61, 61, 61); background-color: black; border-radius: 20px; padding: 1rem">
+            I'm Bryce Richards, a graduate from the University of Tennessee with a major in Computer Science and a minor
+            in Data Science, with a passion for bringing interesting and unique ideas to life. I'm currently relocating to New York and actively looking for developer roles in the area.
             <br><br>
             I like building useful tools, from web apps to data-driven systems, that make life easier or more efficient.
+            I enjoy working in fast paced environments where I can learn and grow.
             <br><br>
-            Outside of computers, I enjoy hanging out with my friends, playing bass, and baking bread.
+            Outside of computers, I enjoy hanging out with friends and learning random things I find interesting, like baking bread or playing the bass.
             <br><br>
             <b>See what I’ve been up to below!</b>
           </p>
         </div>
       </article>
 
-      <article>
+      <article style="display: flex; justify-content: center;">
         <div class="vignette"></div>
         <img src="/src/img/professional_photo/professional_photo.png" alt="Professional Photo" style="width: 75%; height: auto; border-radius: 20px; border: 1px solid rgb(61, 61, 61);">
       </article>
@@ -126,22 +122,22 @@
                 <p class="event_time_period">May 2024 - August 2024</p>
               </div>
               <p style="font-size: 1.6rem;">Software Engineering Intern</p>
-              <p style="font-size: 1rem;">
-                At SwipeSum, I led the development of a full-stack AI support tool that helped automate and improve
-                how the customer support team handled emails.
-                I built a web application that connected Google’s Gemini LLM with a large dataset of past
-                conversations, allowing the support team to generate accurate and personalized responses instantly.
-                <br><br>
-                To keep everything fast and relevant, I implemented a PostgreSQL vector database with custom
+              <ul style="font-size: 1.2rem;">
+                <li>
+                Led the development of a web application that automates responses to customer support emails by leveraging Google’s AI
+                to generate accurate replies using tens of thousands of past internal support emails as a reference.
+                </li>
+                <li>
+                Implemented a PostgreSQL vector database with custom
                 filtering logic and regularly refined it based on team feedback.
-                <br><br>
-                In addition to the AI tooling, I created several internal automations using Zapier.
-                These handled key workflows like onboarding and compliance messaging, integrating with the company’s
-                CRM to make every interaction feel tailored.
-                <br><br>
-                The tools I built helped reduce manual tasks, speed up response times, and gave the team more space
-                to focus on higher value work.
-              </p>
+                </li>
+                <li>
+                Engineered backend data workflows in Python, applying natural language processing techniques to preprocess and vectorize past
+                email data for intelligent retrieval and contextual AI responses.
+                <li>
+                Collaborated directly with the support team in a fast-paced startup environment to refine product features and UX.
+                </li>
+              </ul>
             </div>
           </div>
         </a>
@@ -155,18 +151,25 @@
                 </div>
                 <p class="event_time_period">February 2024 - May 2024</p>
               </div>
-              <p>Web Development Intern</p>
-              <p style="width: 80%; font-size: 1.2rem;">
-                With Disco!, I am currently helping to create a new version of their web application, allowing for
-                users and vendors to create and manage events, and for users to attend and plan their events.
-                <br><br>
-                I am working on the frontend, backend, and database, and am using a variety of technologies such as
-                Next.js, Directus, and React.
-              </p>
+              <p style="font-size: 1.6rem;">Web Development Intern</p>
+              <ul style="font-size: 1.2rem;">
+                <li>
+                  Built and maintained a full-stack event management dashboard using Next.js and Directus CRM handling both front and backend logic.
+                </li>
+                <li>
+                  Designed responsive, dynamic React components while integrating backend data flows to enable real-time updates and user interactions.
+                </li>
+                <li>
+                  Developed backend services to manage image uploads, asset storage, and retrieval using Amazon S3 and Directus APIs.
+                </li>
+                <li>
+                  Collaborated in a multi-developer CI/CD workflow with code reviews, branch deployments, and iterative UI/UX enhancements based on user feedback.
+                </li>
+              </ul>
             </div>
           </div>
         </a>
-        <a href="https://hack4impact.org/" target="_blank">
+        <!-- <a href="https://hack4impact.org/" target="_blank">
           <div class="event">
             <div class="container_event">
               <div class="container_event_header">
@@ -189,7 +192,7 @@
               </p>
             </div>
           </div>
-        </a>
+        </a> -->
         <a href="https://www.adventuredaycamp.com/" target="_blank">
           <div class="event">
             <div class="container_event">
@@ -201,14 +204,17 @@
                 </div>
                 <p class="event_time_period">May 2023 - August 2023</p>
               </div>
-              <p>Camp Counselor</p>
-              <p style="width: 80%; font-size: 1.2rem;">
-                As a camp counselor, I was responsible for leading 16-18 sixth graders, skillfully balancing firm
-                guidance with patience and understanding to foster an engaging and cohesive group dynamic.
-                <br><br>
-                Actively engaged in supervising diverse activities with other counselors, showcasing strong team
-                coordination skills and the ability to foster a collaborative and safe environment.
-              </p>
+              <p style="font-size: 1.6rem;">Camp Counselor</p>
+              <ul style="font-size: 1.2rem;">
+                <li>
+                  I was responsible for leading 16-18 sixth graders, balancing firm
+                  guidance with patience and understanding to foster an engaging and cohesive group dynamic.
+                </li>
+                <li>
+                  Actively engaged in supervising diverse activities with other counselors, showcasing strong team
+                  coordination skills and the ability to foster a collaborative and safe environment.
+                </li>
+              </ul>
             </div>
           </div>
         </a>
@@ -321,7 +327,7 @@
               into manageable sub-goals
               <div style="padding-left: 5%; padding-top: 0.7rem;">
                 <li>
-                  that the AI could then further break down into smaller tasks and complete.
+                  Enabled the AI to further break down tasks into smaller, manageable components.
                 </li>
                 <li>
                   Collaborated in a six person team, with agile development practices
@@ -329,7 +335,7 @@
                   and autonomous task completion.
                 </li>
                 <li>
-                  Alongside this I helped incorporate functionalities for reading files, web searching, and other
+                  Helped incorporate functionalities for reading files, web searching, and other
                   features, significantly broadening the AI's scope and usability in the real-world.
                 </li>
                 <li>
@@ -369,6 +375,10 @@
               <div class="container_badges">
                 <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/firebase.svg" />
                 <p class="text_badges">Firebase</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/tailwindcss.svg" />
+                <p class="text_badges">Tailwind</p>
               </div>
             </div>
           </div>
@@ -422,11 +432,11 @@
                   for voice synthesis from text.
                 </li>
                 <li>
-                  It includes an interactive GUI, which allows users to input their own text and have it be read out
+                  Includes an interactive GUI, which allows users to input their own text and have it be read out
                   by a chosen celebrity.
                 </li>
                 <li>
-                  My program allows the user to connect to the Streamlab's API to have the live streamers donations
+                  Allows the user to connect to the Streamlab's API to have the live streamers donations
                   be read out by a chosen celebrity.
                 </li>
                 <li>
@@ -481,17 +491,41 @@
                   effectively communicating the technical and commercial potential of scalable, browser-based 3D visualization for real estate, tourism, and education.
                 </li>
                 <li>
-                  Engineered and implemented a Level-of-Detail (LOD) system using a hierarchical AABB structure, enabling real-time rendering of large 3D scenes based on camera position and screen-space resolution thresholds.
+                  Engineered and implemented a Level-of-Detail (LOD) system using advanced data structures, enabling real-time rendering of large 3D scenes based on camera position.
                 </li>
                 <li>
-                  Designed and optimized server-side CUDA-based processing to offload intensive rendering tasks, converting the CUDA daemon into a shared-object library and integrating it with Go for robust concurrency and streamlined performance across devices.
+                  Designed and optimized server-side CUDA-based processing parallelizing rendering tasks, and integrating it with Go for robust concurrency and streamlined performance across devices.
                 </li>
               </div>
             </ul>
             <div style="display: flex; flex-flow: row wrap; justify-content: right;">
               <div class="container_badges">
-                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/html5.svg" />
-                <p class="text_badges">HTML</p>
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/nextdotjs.svg" />
+                <p class="text_badges">Next.js</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/go.svg" />
+                <p class="text_badges">Go</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/react.svg" />
+                <p class="text_badges">React</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/nvidia.svg" />
+                <p class="text_badges">CUDA</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/Python.svg" />
+                <p class="text_badges">Python</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/amazonaws.svg" />
+                <p class="text_badges">AWS</p>
+              </div>
+              <div class="container_badges">
+                <img height="20" width="20" src="https://unpkg.com/simple-icons@v11/icons/tailwindcss.svg" />
+                <p class="text_badges">Tailwind</p>
               </div>
             </div>
           </div>
@@ -500,12 +534,14 @@
           <div class="container_projectvisuals">
             <div class="background_dots"></div>
             <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
+              <img src="/src/img/project_logos/UTK_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
               <p class="text_projecttitles">Senior Design</p>
             </div>
             <div class="container_projectvisuals_images">
               <img src="/src/img/project_screenshots/gsplat/gsplat_1.gif">
               <img src="/src/img/project_screenshots/gsplat/group_image.jpg">
               <img src="/src/img/project_screenshots/gsplat/poster_image.PNG">
+              <img src="/src/img/project_screenshots/gsplat/Graves_Awards_Ceremony.jpg">
             </div>
           </div>
         </div>
@@ -517,13 +553,12 @@
           <div class="container_projectvisuals">
             <div class="background_dots"></div>
             <div style="display: flex; flex-direction: row; background-color: black; position: relative; z-index: 2;">
-              <img src="/src/img/project_logos/isometricbr_logo.png" style="padding-right: 20px;" width="64px"
-                height="64px"></img>
+              <img src="/src/img/project_logos/isometricbr_logo.png" style="padding-right: 20px;" width="64px" height="64px"></img>
               <p class="text_projecttitles">Personal Website</p>
             </div>
             <div class="container_projectvisuals_images">
-              <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess2.PNG">
-              <img src="/src/img/project_screenshots/portfolio/portfoliowebsitess1.PNG">
+              <img src="/src/img/project_screenshots/portfolio/portfoliowebsite1.PNG">
+              <img src="/src/img/project_screenshots/portfolio/portfoliowebsite2.PNG">
             </div>
           </div>
         </a>
@@ -535,7 +570,7 @@
               Built and self hosted a personal website from scratch to showcase my projects, experience, and skills using core web technologies.
               <div style="padding-left: 5%; padding-top: 0.7rem;">
                 <li>
-                  Designed and developed the entire site using HTML, CSS, and vanilla JavaScript
+                  Designed and developed the entire site using HTML, CSS, and JavaScript
                 </li>
                 <li>
                   Self-hosted the site on a Linux server using Docker and Nginx
@@ -577,8 +612,9 @@
     </div>
 
     <!-- ######################### Skills ######################### -->
-    <p class="text_titles">SKILLS</p>
-    <section class="skills-wrapper">
+    <div style="padding-block: 10rem; display: flex; flex-direction: column; align-items: center;">
+      <p class="text_titles" style="align-self: flex-start;">SKILLS</p>
+      <section class="skills-wrapper">
         <div class="skill-card">
           <h2>General</h2>
           <ul>
@@ -601,6 +637,7 @@
             <li>TypeScript</li>
             <li>JavaScript</li>
             <li>React.js</li>
+            <li>Tailwind</li>
             <li>Express.js</li>
             <li>Node.js</li>
             <li>AWS</li>
@@ -621,25 +658,7 @@
           </ul>
         </div>
       </section>
-
-  <script>
-    // Fade-in animation when elements enter viewport
-    const cards=document.querySelectorAll('.skill-card');
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.style.opacity=1;
-          entry.target.style.transform='translateY(0)';
-        }
-      });
-    },{threshold:0.3});
-
-    cards.forEach(card=>{
-      card.style.opacity=0;
-      card.style.transform='translateY(40px)';
-      observer.observe(card);
-    });
-  </script>
+    </div>
 
     <!-- ######################### Contact Me ######################### -->
     <div id="container_contactme"></div>
@@ -679,13 +698,11 @@
             <a href="https://www.linkedin.com/in/bryce-richards-085312237/" target="_blank">
               <img src="/src/img/socialmedia_logos/linkedin_logo.png" width="50px" height="50px"></img>
             </a>
-            <!-- <p>Linkedin</p> -->
           </div>
           <div style="padding-left: 2rem;">
             <a href="https://github.com/brycerichards13" target="_blank">
               <img src="/src/img/socialmedia_logos/github_logo.png" width="50px" height="50px"></img>
             </a>
-            <!-- <p>GitHub</p> -->
           </div>
         </div>
       </div>

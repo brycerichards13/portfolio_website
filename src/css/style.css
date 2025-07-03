@@ -46,22 +46,6 @@ p {
   justify-content: space-around;
 }
 
-.container_badges {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  width: 100px; 
-  height: 30px;
-  margin: 5px;
-}
-
-.text_badges {
-  color: black;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 .container_languagelogo {
   display: flex;
   flex-direction: column;
