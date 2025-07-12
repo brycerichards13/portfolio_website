@@ -1,23 +1,17 @@
-/* MAKE THE ID/CLASS SCHEME CONSISTENT */
 #container_contactme {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* height: 100vh; */
 }
 
 .form_contactme {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   width: 30%;
 }
 
 .input_contactme {
   color: white;
-  /* background-color: rgb(15, 15, 15); */
   background-color: transparent;
   border-color: transparent;
   margin-block: 1rem;

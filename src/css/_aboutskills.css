@@ -6,7 +6,6 @@
   /* height: 100vh; */
 }
 
-/* -------------- New Edits -------------- */
 .block {
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +34,6 @@
 :root{
   --bg-color: #000;
   --text-color: #fff;
-  /* --glass-bg: rgba(255,255,255,0.05); */
   --glass-border: rgba(255,255,255,0.2);
 }
 
@@ -52,7 +50,6 @@
   position:relative;
   padding:40px 30px;
   border-radius:20px;
-  background:var(--glass-bg);
   border:1px solid var(--glass-border);
   backdrop-filter:blur(15px);
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
