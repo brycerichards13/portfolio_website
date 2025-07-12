@@ -18,22 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to close the sidebar
   function closeSidebar() {
-    sidebarToggle.classList.remove('opened');
-    headerContainer.classList.remove('active');
+    sidebarToggle?.classList.remove('opened');
+    headerContainer?.classList.remove('active');
   }
 
   // --- Logic for the Hamburger Toggle Button ---
-  sidebarToggle.addEventListener('click', function() {
+  sidebarToggle?.addEventListener('click', function() {
     this.classList.toggle('opened');
-    headerContainer.classList.toggle('active');
+    headerContainer?.classList.toggle('active');
   });
 
-  // --- FIX: Add click listeners to all nav buttons ---
   // Loop through each navigation button
   navButtons.forEach(button => {
-    // When a button is clicked...
     button.addEventListener('click', function() {
-      // ...close the sidebar.
       closeSidebar();
     });
   });
@@ -58,20 +55,42 @@ document.addEventListener("DOMContentLoaded", (): void => {
     });
 });
 
-const cards=document.querySelectorAll('.skill-card');
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-    if(entry.isIntersecting){
-        entry.target.style.opacity=1;
-        entry.target.style.transform='translateY(0)';
-    }
-    });
-},{threshold:0.3});
+// const cards=document.querySelectorAll('.skill-card');
+// const observer=new IntersectionObserver(entries=>{
+//     // @ts-ignore
+//     entries.forEach(entry=>{
+//         if(entry.isIntersecting){
+//         entry.target.style.opacity=1;
+//         entry.target.style.transform='translateY(0)';
+//     }
+//     });
+// },{threshold:0.3});
 
-cards.forEach(card=>{
-    card.style.opacity=0;
-    card.style.transform='translateY(40px)';
-    observer.observe(card);
-});
+// // @ts-ignore
+// cards.forEach(card=>{
+//     card.style.opacity=0;
+//     card.style.transform='translateY(40px)';
+//     observer.observe(card);
+// });
   
+document.addEventListener("DOMContentLoaded", (): void => {
+    // @ts-ignore
+    const observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry): void => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    // Target elements with the class 'container_project'
+    // @ts-ignore
+    const targets: NodeListOf<Element> = document.querySelectorAll('.container_projects');
+    targets.forEach((target: Element): void => {
+        // @ts-ignore
+        observer.observe(target);
+    });
+});
 

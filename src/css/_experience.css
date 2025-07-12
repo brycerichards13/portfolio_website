@@ -1,7 +1,7 @@
 .timeline {
   margin: 0 10vw; 
   padding-top: 50px; 
-  padding-bottom: 10px; /* Space for extending the line beyond the last circle */
+  padding-bottom: 10px;
 }
 
 .event {
@@ -29,7 +29,7 @@
   content: '';
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  border-radius: 20px; /* Match your container's border-radius */
+  border-radius: 20px;
   background: linear-gradient(121deg, rgba(255, 255, 255, 0.07) -12.02%, rgba(9, 9, 9, 0.07) 87.55%);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -51,7 +51,7 @@
   align-items: center;
 }
 
-/* Styles for smaller screens - adjust 768px as needed */
+/* Styles for smaller screens */
 @media (max-width: 650px) {
   .container_event_header {
     flex-direction: column;
@@ -66,13 +66,12 @@
     margin-bottom: 0.5rem; /* Add some space below the image */
   }
 
-  .container_event_header p:first-of-type { /* Targets "Disco!" */
+  .container_event_header p:first-of-type {
     padding-left: 0; /* Remove padding when in column */
     margin-bottom: 0.5rem; /* Add some space below the name */
   }
 
   .container_event_header .date-text {
     margin-left: 0; /* Remove the auto margin */
-    /* You might want to adjust font size or color for smaller screens too */
   }
 }
