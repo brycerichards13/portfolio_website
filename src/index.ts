@@ -1,96 +1,53 @@
-// Button to scroll to the top of the page
+// Main function to run after the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Button to scroll to the top of the page ---
     const toTopButton = document.getElementById('button_totop');
     if (toTopButton) {
         // Click event for scrolling to top
         toTopButton.addEventListener('click', () => {
-            console.log('ToTop button clicked');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  const sidebarToggle = document.getElementById('button_sidebartoggle');
-  const headerContainer = document.getElementById('container_header');
-  // Select all the navigation links inside the header
-  const navButtons = document.querySelectorAll('#container_header .button_header');
+    // --- Sidebar toggle functionality ---
+    const sidebarToggle = document.getElementById('button_sidebartoggle');
+    const headerContainer = document.getElementById('container_header');
+    const navButtons = document.querySelectorAll('#container_header .button_header');
 
-  // Function to close the sidebar
-  function closeSidebar() {
-    sidebarToggle?.classList.remove('opened');
-    headerContainer?.classList.remove('active');
-  }
+    // Function to close the sidebar
+    function closeSidebar() {
+        sidebarToggle?.classList.remove('opened');
+        headerContainer?.classList.remove('active');
+    }
 
-  // --- Logic for the Hamburger Toggle Button ---
-  sidebarToggle?.addEventListener('click', function() {
-    this.classList.toggle('opened');
-    headerContainer?.classList.toggle('active');
-  });
-
-  // Loop through each navigation button
-  navButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      closeSidebar();
+    // Event listener for the hamburger toggle button
+    sidebarToggle?.addEventListener('click', function() {
+        this.classList.toggle('opened');
+        headerContainer?.classList.toggle('active');
     });
-  });
-});
 
-// Fade in animation for projects
-document.addEventListener("DOMContentLoaded", (): void => {
-    const observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry): void => {
+    // Add click listeners to all navigation buttons to close the sidebar
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            closeSidebar();
+        });
+    });
+
+    // --- Intersection Observer for fade-in animations ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
             }
         });
     }, {
-        threshold: 0.1 // Adjust this value based on when you want the animation to start
+        threshold: 0.1 // Animation starts when 10% of the element is visible
     });
 
-    // Target elements with the class 'container_project'
-    const targets: NodeListOf<Element> = document.querySelectorAll('.container_projects');
-    targets.forEach((target: Element): void => {
+    // Observe all elements with the class '.container_projects'
+    const projectTargets = document.querySelectorAll('.container_projects');
+    projectTargets.forEach(target => {
         observer.observe(target);
     });
 });
-
-// const cards=document.querySelectorAll('.skill-card');
-// const observer=new IntersectionObserver(entries=>{
-//     // @ts-ignore
-//     entries.forEach(entry=>{
-//         if(entry.isIntersecting){
-//         entry.target.style.opacity=1;
-//         entry.target.style.transform='translateY(0)';
-//     }
-//     });
-// },{threshold:0.3});
-
-// // @ts-ignore
-// cards.forEach(card=>{
-//     card.style.opacity=0;
-//     card.style.transform='translateY(40px)';
-//     observer.observe(card);
-// });
-  
-document.addEventListener("DOMContentLoaded", (): void => {
-    // @ts-ignore
-    const observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry): void => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    // Target elements with the class 'container_project'
-    // @ts-ignore
-    const targets: NodeListOf<Element> = document.querySelectorAll('.container_projects');
-    targets.forEach((target: Element): void => {
-        // @ts-ignore
-        observer.observe(target);
-    });
-});
-

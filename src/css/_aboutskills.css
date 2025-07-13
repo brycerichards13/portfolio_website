@@ -1,11 +1,3 @@
-#container_aboutskills {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: space-around;
-  /* height: 100vh; */
-}
-
 .block {
   display: flex;
   flex-wrap: wrap;
@@ -21,13 +13,6 @@
 .block > article {
   flex: 1 1 320px;
   max-width: 600px;
-}
-
-/* Center the image on smaller screens */
-.block > article:last-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* -------------- Skills -------------- */
@@ -56,6 +41,7 @@
   overflow:hidden;
   transition:transform .4s ease;
 }
+
 .skill-card:hover{
   transform:translateY(-6px);
 }

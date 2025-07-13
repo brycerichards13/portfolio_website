@@ -166,6 +166,6 @@
 }
 
 .container_badges img {
-  filter: invert(1);;
+  filter: invert(1);
   padding-right: 0.4rem;
 }

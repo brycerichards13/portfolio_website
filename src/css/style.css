@@ -20,49 +20,16 @@ p {
   color: white;
 }
 
-/* -------------- New Edits -------------- */
 :root {
   --step-0: clamp(1rem , 0.9rem + 0.6vw , 1.5rem);  /* body copy */
   --step-2: clamp(3.5rem, 2.3rem + 5vw , 6rem);     /* section titles */
 }
 
-.title        { font-size: var(--step-2); margin: 0 0 1rem; color: white;}
-.text_titles        { font-size: var(--step-2); margin: 0 0 1rem; color: white;}
-
-/* -------------- New Edits End -------------- */
-
-.container_languages {
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; */
-  align-items: center;
-  height: 50vh;
-}
-
-.container_languagerow {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.container_languagelogo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.3rem;
-  padding: 7px;
-  width: 130px;
-  margin-block: 5px;
-  /* border: white 4px dotted; */
-  border: rgb(61, 61, 61) 1px solid;
-  border-radius: 10px;
-}
+.title        { font-size: var(--step-2); margin: 0 0 1rem;}
+.text_titles        { font-size: var(--step-2); margin: 0 0 1rem;}
 
 .text_titles {
   color: rgb(255, 255, 255);
-  /* font-size: 120px; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-left: 5.5vw;
   padding: 0;
 }
@@ -75,20 +42,19 @@ p {
   color: white;
   border-radius: 50%;
   display: flex;
-  flex-direction: column; /* Stack arrow and dots if needed, or keep as is if centering content */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* This transition can be removed or kept for hover effects if any are added later */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   margin: 40px auto; /* Centers the button horizontally and adds some space */
 }
 
 .arrow_up {
-  font-size: 60px; /* Adjusted for a sharper arrow character */
+  font-size: 60px;
   line-height: 1; 
   transition: transform 0.3s ease-out;
   z-index: 100; 
-  color: white; /* Explicitly set arrow color */
 }
 
 .dots_background_totop {
@@ -99,7 +65,7 @@ p {
   height: 100%;
   background-image: radial-gradient(circle, rgba(256, 255, 255, 0.8) 1px, transparent 1.5px), 
                     radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1.5px);
-  background-size: 8px 8px;; 
+  background-size: 8px 8px; 
   opacity: 0; 
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   z-index: 1; 
@@ -136,9 +102,4 @@ p {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-/* For Firefox */
-html {
-  /* scrollbar-color: white black; */
 }
