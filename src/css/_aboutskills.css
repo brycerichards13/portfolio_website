@@ -37,7 +37,6 @@
   border-radius:20px;
   border:1px solid var(--glass-border);
   backdrop-filter:blur(15px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
   overflow:hidden;
   transition:transform .4s ease;
 }
