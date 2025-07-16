@@ -9,3 +9,11 @@
   pointer-events: none; /* Prevents interaction with the vignette */
   z-index: 3; /* Places it behind the content */
 }
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place canvas behind other content */
+}

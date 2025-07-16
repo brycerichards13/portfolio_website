@@ -1,69 +1,123 @@
-const canvas = document.getElementById('starfield');
-const ctx = canvas.getContext('2d');
-const container = document.getElementById('container_aboutskills_block');
-console.log('Container:', container);
+// Basic Setup
+let scene, camera, renderer;
+let planePoints;
+let clock;
 
-let stars = [];
-const gridSpacing = 15;
-const twinkleSpeed = 0.012;
+// Mouse Interaction Variables
+const mouse = new THREE.Vector2(-10, -10); // Initialize mouse off-screen
+const raycaster = new THREE.Raycaster();
+const intersectionPoint = new THREE.Vector3();
+let isIntersecting = false;
 
-/**
- * Sets the canvas dimensions to fill its container and resets star positions.
- */
-function setCanvasSize() {
-    // Use the container's dimensions, not the window's
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
-    stars = []; 
-    initStars(); 
+function init() {
+    // Create a new scene
+    scene = new THREE.Scene();
+
+    // Create a clock to track elapsed time for animations
+    clock = new THREE.Clock();
+
+    // Create a perspective camera
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 26; // Move camera back to view the plane
+
+    // Create the WebGL renderer
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.insertBefore(renderer.domElement, document.body.firstChild);
+
+    // Create the Point Plane
+    // Parameters: width, height, widthSegments, heightSegments
+    const geometry = new THREE.PlaneGeometry(100, 100, 128, 128);
+    geometry.setAttribute('originalPosition', geometry.attributes.position.clone());
+
+    const material = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.075,
+        sizeAttenuation: true
+    });
+
+    planePoints = new THREE.Points(geometry, material);
+    scene.add(planePoints);
+
+    // Event Listeners
+    window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('mousemove', onMouseMove, false);
 }
 
-function Star(x, y, radius, alpha) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.alpha = alpha;
-    this.initialAlpha = alpha; 
-    this.alphaChange = (Math.random() > 0.5 ? twinkleSpeed : -twinkleSpeed) * Math.random();
-}
-
-function initStars() {
-    for (let x = gridSpacing / 2; x < canvas.width; x += gridSpacing) {
-        for (let y = gridSpacing / 2; y < canvas.height; y += gridSpacing) {
-            const radius = 1.5; 
-            const alpha = Math.random() * 0.7; 
-            stars.push(new Star(x, y, radius, alpha));
-        }
-    }
-}
-
+// Animation Loop
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const star of stars) {
-        star.alpha += star.alphaChange;
-        if (star.alpha > star.initialAlpha + 0.3 || star.alpha < star.initialAlpha - 0.3) {
-            star.alphaChange *= -1;
-        }
-        if (star.alpha < 0) star.alpha = 0;
-        if (star.alpha > 1) star.alpha = 1;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-        ctx.fill();
-    }
     requestAnimationFrame(animate);
+
+    const elapsedTime = clock.getElapsedTime();
+
+    // Raycasting for Mouse Interaction
+    // We need a temporary mesh to raycast against the plane
+    const tempPlane = new THREE.Mesh(planePoints.geometry);
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObject(tempPlane);
+    tempPlane.visible = false; // Don't actually render it
+
+    if (intersects.length > 0) {
+        intersectionPoint.copy(intersects[0].point);
+        isIntersecting = true;
+    } else {
+        isIntersecting = false;
+    }
+
+    // Animate Vertices
+    const positions = planePoints.geometry.attributes.position;
+    const originalPositions = planePoints.geometry.attributes.originalPosition;
+
+    for (let i = 0; i < positions.count; i++) {
+        const ox = originalPositions.getX(i);
+        const oy = originalPositions.getY(i);
+        const oz = originalPositions.getZ(i);
+
+        // 1. Calculate base noise displacement (the original warping effect)
+        const noiseDisplacement = 
+            (Math.sin(elapsedTime * 0.5 + ox * 0.1) +
+                Math.cos(elapsedTime * 0.4 + oy * 0.1) +
+                Math.sin(elapsedTime * 0.3 + (ox + oy) * 0.05)) * 2.5;
+
+        // 2. Calculate mouse-based warp displacement
+        let warpDisplacement = 0;
+        if (isIntersecting) {
+            const currentVertex = new THREE.Vector3(ox, oy, oz);
+            const dist = currentVertex.distanceTo(intersectionPoint);
+            const warpRadius = 10; 
+
+            if (dist < warpRadius) {
+                const falloff = (1 - (dist / warpRadius));
+                warpDisplacement = Math.pow(falloff, 2) * 5;
+            }
+        }
+        
+        // 3. Combine displacements and apply to the vertex
+        // For a plane, we apply the displacement only on the Z axis.
+        const totalDisplacement = noiseDisplacement + warpDisplacement;
+        positions.setZ(i, oz + totalDisplacement);
+    }
+
+    // Tell three.js to update the geometry
+    positions.needsUpdate = true;
+
+    renderer.render(scene, camera);
 }
 
-// --- Event Listeners and Initialization ---
+// Event Handlers
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
 
-setCanvasSize();
+function onMouseMove(event) {
+    // Convert mouse position to normalized device coordinates (-1 to +1)
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+}
+
+// Start the application
+init();
 animate();
-
-// Use a ResizeObserver to be more efficient than a window resize event,
-// but fall back to window resize for broader compatibility.
-if ('ResizeObserver' in window) {
-    const observer = new ResizeObserver(setCanvasSize);
-    observer.observe(container);
-} else {
-    window.addEventListener('resize', setCanvasSize);
-}
